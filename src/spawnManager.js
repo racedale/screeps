@@ -5,7 +5,6 @@ let healers = [];
 let guards = [];
 
 let spawnManager = function() {
-  // Auto create creeps if there is enough energy and not enough creeps
 
   if(harvesters.length < 7) {
     // TODO: add auto naming system for creeps
@@ -22,7 +21,6 @@ let spawnManager = function() {
       {role: 'builder'}
     );
     console.log('Spawning new builder');
-  }
   } else if (upgraders.length < 6) {
     Game.spawns.spawn1.createCreep(
       [WORK, CARRY, CARRY, MOVE, MOVE, MOVE],
@@ -30,7 +28,7 @@ let spawnManager = function() {
       {role: 'upgrader'}
     );
     console.log('Spawning new upgrader');
-  else {
+  } else {
      Game.spawns.spawn1.createCreep(
        [WORK, CARRY, CARRY, MOVE, MOVE],
        null,
