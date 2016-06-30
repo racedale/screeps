@@ -1,6 +1,6 @@
-let roleHarvester = require('role.harvester');
-let roleUpgrader = require('role.upgrader');
-let roleBuilder = require('role.builder');
+const roleHarvester = require('role.harvester');
+const roleUpgrader = require('role.upgrader');
+const roleBuilder = require('role.builder');
 
 module.exports.loop = function () {
   let harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
@@ -31,7 +31,7 @@ module.exports.loop = function () {
     }
   }
 
-  let tower = Game.getObjectById('TOWER_ID');
+  const tower = Game.getObjectById('TOWER_ID');
   if(tower) {
     let closestDamagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, {
         filter: (structure) => structure.hits < structure.hitsMax

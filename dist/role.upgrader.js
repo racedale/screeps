@@ -1,13 +1,8 @@
 "use strict";
 
-/*
- * Module code goes here. Use 'module.exports' to export things:
- * module.exports.thing = 'a thing';
- *
- * You can import it from another modules like this:
- * var mod = require('role.upgrader');
- * mod.thing == 'a thing'; // true
- */
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
 
 var roleUpgrader = {
 
@@ -34,4 +29,4 @@ var roleUpgrader = {
     }
 };
 
-module.exports = roleUpgrader;
+exports.default = roleUpgrader;
