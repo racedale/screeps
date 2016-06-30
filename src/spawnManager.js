@@ -7,7 +7,7 @@ let guards = [];
 let spawnManager = function() {
   // Auto create creeps if there is enough energy and not enough creeps
 
-  if(harvesters.length < 8) {
+  if(harvesters.length < 7) {
     // TODO: add auto naming system for creeps
     Game.spawns.spawn1.createCreep(
       [WORK, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE],
@@ -15,6 +15,14 @@ let spawnManager = function() {
       {role: 'harvester'}
     );
     console.log('Spawning new harvester');
+  } else if (builders.length < 3) {
+    Game.spawns.spawn1.createCreep(
+      [WORK, CARRY, MOVE, MOVE],
+      null,
+      {role: 'builder'}
+    );
+    console.log('Spawning new builder');
+  }
   } else if (upgraders.length < 6) {
     Game.spawns.spawn1.createCreep(
       [WORK, CARRY, CARRY, MOVE, MOVE, MOVE],
@@ -22,14 +30,6 @@ let spawnManager = function() {
       {role: 'upgrader'}
     );
     console.log('Spawning new upgrader');
-  } else if (builders.length < 3) {
-    Game.spawns.spawn1.createCreep(
-      [WORK, WORK, CARRY, MOVE, MOVE],
-      null,
-      {role: 'builder'}
-    );
-    console.log('Spawning new builder');
-  }
   else {
      Game.spawns.spawn1.createCreep(
        [WORK, CARRY, CARRY, MOVE, MOVE],
@@ -37,12 +37,13 @@ let spawnManager = function() {
        {role: 'upgrader'}
      );
     //  Game.spawns.spawn1.createCreep(
-    //    [ATTACK, ATTACK, HEAL, MOVE, MOVE],
+    //    [ATTACK, ATTACK, TOUGH, TOUGH, TOUGH, TOUGH, MOVE, MOVE],
     //    null,
-    //    {role: 'warrior'}
+    //    {role: 'guards'}
     //  );
   }
-  console.log("Spawn CPU: ", Game.cpu.getUsed());
+  console.log("Harvesters: ", harvesters.length, "Upgraders: ", upgraders.length, "Builders: ", builders.length);
+  // console.log("Spawn CPU: ", Game.cpu.getUsed());
 }
 
 module.exports = spawnManager;

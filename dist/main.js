@@ -18,6 +18,8 @@ var _spawnManager2 = _interopRequireDefault(_spawnManager);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// global.Cache = new Cache();
+// import Cache from 'Cache';
 module.exports.loop = function () {
 
   // Clean memory for expired creeps
@@ -31,6 +33,8 @@ module.exports.loop = function () {
   if (Game.spawns.spawn1.spawning === null) {
     if (Game.spawns.spawn1.energy >= 300) {
       (0, _spawnManager2.default)();
+      // var structures = _.filter(Game.structures, (structure) => structure.structureType == 'STRUCTURE_EXTENSION' );
+      // console.log(structures.energy);
     }
   }
 

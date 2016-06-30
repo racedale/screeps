@@ -1,3 +1,4 @@
+// import Cache from 'Cache';
 import roleHarvester from 'role.harvester';
 import roleUpgrader from 'role.upgrader';
 import roleBuilder from 'role.builder';
@@ -5,6 +6,7 @@ import roleBuilder from 'role.builder';
 import spawnManager from 'spawnManager';
 
 
+// global.Cache = new Cache();
 module.exports.loop = function () {
 
   // Clean memory for expired creeps
@@ -18,6 +20,8 @@ module.exports.loop = function () {
   if (Game.spawns.spawn1.spawning === null) {
     if (Game.spawns.spawn1.energy >= 300) {
       spawnManager();
+      // var structures = _.filter(Game.structures, (structure) => structure.structureType == 'STRUCTURE_EXTENSION' );
+      // console.log(structures.energy);
     }
   }
 
