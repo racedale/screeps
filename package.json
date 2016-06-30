@@ -1,0 +1,25 @@
+{
+  "name": "screeps",
+  "version": "1.0.0",
+  "main": "main.js",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-preset-es2015": "^6.9.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/racedale/screeps.git"
+  },
+  "author": "Dale Race",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/racedale/screeps/issues"
+  },
+  "homepage": "https://github.com/racedale/screeps#readme",
+  "description": ""
+}

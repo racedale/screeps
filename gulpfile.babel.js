@@ -1,14 +1,20 @@
 
- import gulp from 'gulp'; // ES6 imports!
+import gulp from 'gulp'; // ES6 imports!
+import babel from 'gulp-babel';
 
-// gulp.task('js',
-//   gulp.src('src')
-//
-// );
+gulp.task('js', () => { // Arrow functions!!
+  return gulp.src('src/**/*.js')
+		.pipe(babel({
+			presets: ['es2015']
+		}))
+		.pipe(gulp.dest('dist'))
+});
 
- gulp.task('default', () => { // Arrow functions!!
-   gulp.watch('./src/**/*.js', ['js'])
-    .on('change', (e) => {  // Arrow functions!!
-      console.log(`File ${e.path} was ${e.type}, running JS task...`); // Template strings and interpolation!!
-    });
+ gulp.task('default', () => {
+  //  gulp.watch('./src/**/*.js', ['js']);
+  return gulp.src('src/**/*.js')
+    .pipe(babel({
+      presets: ['es2015']
+    }))
+    .pipe(gulp.dest('dist'))
  });

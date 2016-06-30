@@ -1,16 +1,16 @@
-var roleHarvester = require('role.harvester');
-var roleUpgrader = require('role.upgrader');
-var roleBuilder = require('role.builder');
+let roleHarvester = require('role.harvester');
+let roleUpgrader = require('role.upgrader');
+let roleBuilder = require('role.builder');
 
 module.exports.loop = function () {
-  var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
-  var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
-  var builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
-  var healers = [];
-  var guards = [];
+  let harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
+  let upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
+  let builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
+  let healers = [];
+  let guards = [];
 
 // Clean memory for expired creeps
-  for (var name in Memory.creeps) {
+  for (let name in Memory.creeps) {
     if (Game.creeps[name] == undefined) {
       delete Memory.creeps[name];
     }
@@ -31,23 +31,23 @@ module.exports.loop = function () {
     }
   }
 
-  var tower = Game.getObjectById('TOWER_ID');
+  let tower = Game.getObjectById('TOWER_ID');
   if(tower) {
-    var closestDamagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, {
+    let closestDamagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, {
         filter: (structure) => structure.hits < structure.hitsMax
     });
     if(closestDamagedStructure) {
         tower.repair(closestDamagedStructure);
     }
 
-    var closestHostile = tower.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
+    let closestHostile = tower.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
     if(closestHostile) {
         tower.attack(closestHostile);
     }
   }
 
-  for(var name in Game.creeps) {
-    var creep = Game.creeps[name];
+  for(let name in Game.creeps) {
+    let creep = Game.creeps[name];
     if(creep.memory.role == 'harvester') {
         roleHarvester.run(creep);
     }
