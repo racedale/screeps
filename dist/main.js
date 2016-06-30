@@ -14,6 +14,8 @@ var _role6 = _interopRequireDefault(_role5);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// import tower from 'tower';
+
 module.exports.loop = function () {
   var harvesters = _.filter(Game.creeps, function (creep) {
     return creep.memory.role == 'harvester';
@@ -49,23 +51,6 @@ module.exports.loop = function () {
     }
   }
 
-  var tower = Game.getObjectById('TOWER_ID');
-  if (tower) {
-    var closestDamagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, {
-      filter: function filter(structure) {
-        return structure.hits < structure.hitsMax;
-      }
-    });
-    if (closestDamagedStructure) {
-      tower.repair(closestDamagedStructure);
-    }
-
-    var closestHostile = tower.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
-    if (closestHostile) {
-      tower.attack(closestHostile);
-    }
-  }
-
   for (var _name in Game.creeps) {
     var creep = Game.creeps[_name];
     if (creep.memory.role == 'harvester') {
@@ -76,6 +61,24 @@ module.exports.loop = function () {
     }
     if (creep.memory.role == 'builder') {
       _role6.default.run(creep);
+    }
+  }
+
+  // Tower code from tutorial
+  var towerStructure = Game.getObjectById('TOWER_ID');
+  if (towerStructure) {
+    var closestDamagedStructure = towerStructure.pos.findClosestByRange(FIND_STRUCTURES, {
+      filter: function filter(structure) {
+        return structure.hits < structure.hitsMax;
+      }
+    });
+    if (closestDamagedStructure) {
+      towerStructure.repair(closestDamagedStructure);
+    }
+
+    var closestHostile = towerStructure.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
+    if (closestHostile) {
+      towerStructure.attack(closestHostile);
     }
   }
 };

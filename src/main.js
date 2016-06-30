@@ -1,6 +1,7 @@
 import roleHarvester from 'role.harvester';
 import roleUpgrader from 'role.upgrader';
 import roleBuilder from 'role.builder';
+// import tower from 'tower';
 
 module.exports.loop = function () {
   let harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
@@ -31,21 +32,6 @@ if (Game.spawns.spawn1.energy >= 300) {
    }
  }
 
- const tower = Game.getObjectById('TOWER_ID');
- if(tower) {
-  let closestDamagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, {
-    filter: (structure) => structure.hits < structure.hitsMax
-  });
-  if(closestDamagedStructure) {
-    tower.repair(closestDamagedStructure);
-  }
-
-  let closestHostile = tower.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
-  if(closestHostile) {
-    tower.attack(closestHostile);
-  }
-}
-
 for(let name in Game.creeps) {
   let creep = Game.creeps[name];
   if(creep.memory.role == 'harvester') {
@@ -57,5 +43,21 @@ for(let name in Game.creeps) {
   if(creep.memory.role == 'builder') {
     roleBuilder.run(creep);
   }
+}
+
+// Tower code from tutorial
+const towerStructure = Game.getObjectById('TOWER_ID');
+if(towerStructure) {
+ let closestDamagedStructure = towerStructure.pos.findClosestByRange(FIND_STRUCTURES, {
+   filter: (structure) => structure.hits < structure.hitsMax
+ });
+ if(closestDamagedStructure) {
+   towerStructure.repair(closestDamagedStructure);
+ }
+
+ let closestHostile = towerStructure.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
+ if(closestHostile) {
+   towerStructure.attack(closestHostile);
+ }
 }
 }
