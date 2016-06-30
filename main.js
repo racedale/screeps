@@ -13,10 +13,10 @@ module.exports.loop = function () {
     if(harvesters.length < 4) {
         Game.spawns.spawn1.createCreep([WORK, CARRY, CARRY, MOVE], null, {role: 'harvester'});
         console.log('Spawning new harvester');
-    } else if (upgraders.length < 2) {
+    } else if (upgraders.length < 3) {
        Game.spawns.spawn1.createCreep([WORK, WORK, CARRY, MOVE], null, {role: 'upgrader'});
        console.log('Spawning new upgrader');
-    } else if (builders.length < 2) {
+    } else if (builders.length < 3) {
        Game.spawns.spawn1.createCreep([WORK, WORK, CARRY, MOVE], null, {role: 'builder'});
        console.log('Spawning new builder');
     }
