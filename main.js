@@ -15,7 +15,7 @@ module.exports.loop = function () {
         Game.spawns.spawn1.createCreep([WORK, CARRY, CARRY, MOVE], null, {role: 'harvester'});
         console.log('Spawning new harvester');
     } else if (upgraders.length < 3) {
-       Game.spawns.spawn1.createCreep([WORK, WORK, CARRY, MOVE], null, {role: 'upgrader'});
+       Game.spawns.spawn1.createCreep([WORK, CARRY, MOVE, MOVE], null, {role: 'upgrader'});
        console.log('Spawning new upgrader');
     } else if (builders.length < 3) {
        Game.spawns.spawn1.createCreep([WORK, WORK, CARRY, MOVE], null, {role: 'builder'});
