@@ -10,7 +10,7 @@ let spawnManager = function() {
   if(harvesters.length < 8) {
     // TODO: add auto naming system for creeps
     Game.spawns.spawn1.createCreep(
-      [WORK, WORK, CARRY, CARRY, MOVE, MOVE],
+      [WORK, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE],
       null,
       {role: 'harvester'}
     );
@@ -32,7 +32,7 @@ let spawnManager = function() {
   }
   else {
      Game.spawns.spawn1.createCreep(
-       [WORK, CARRY, CARRY, MOVE],
+       [WORK, CARRY, CARRY, MOVE, MOVE],
        null,
        {role: 'harvester'}
      );
