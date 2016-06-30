@@ -11,7 +11,7 @@ module.exports.loop = function () {
 
   if (Game.spawns.spawn1.energy >= 300) {
     if(harvesters.length < 4) {
-        Game.spawns.spawn1.createCreep([WORK,CARRY,MOVE], null, {role: 'harvester'});
+        Game.spawns.spawn1.createCreep([WORK, CARRY, CARRY, MOVE], null, {role: 'harvester'});
         console.log('Spawning new harvester');
     } else if (upgraders.length < 2) {
        Game.spawns.spawn1.createCreep([WORK, WORK, CARRY, MOVE], null, {role: 'upgrader'});
