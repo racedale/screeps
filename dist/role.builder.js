@@ -1,9 +1,5 @@
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
 var roleBuilder = {
 
     /** @param {Creep} creep **/
@@ -32,4 +28,4 @@ var roleBuilder = {
     }
 };
 
-exports.default = roleBuilder;
+module.exports = roleBuilder;

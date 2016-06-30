@@ -27,4 +27,4 @@
      }
  };
 
-export default roleHarvester;
+module.exports = roleHarvester;
