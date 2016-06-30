@@ -30,6 +30,7 @@ for(let name in Game.creeps) {
   if(creep.memory.role == 'builder') {
     roleBuilder.run(creep);
   }
+  // console.log("For loop:", Game.getUsedCPU());
 }
 
 // Tower code from tutorial

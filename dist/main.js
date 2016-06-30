@@ -43,6 +43,7 @@ module.exports.loop = function () {
     if (creep.memory.role == 'builder') {
       _role6.default.run(creep);
     }
+    // console.log("For loop:", Game.getUsedCPU());
   }
 
   // Tower code from tutorial
