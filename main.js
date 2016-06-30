@@ -9,6 +9,12 @@ module.exports.loop = function () {
   var healers = [];
   var guards = [];
 
+  for (var name in Memory.creeps) {
+    if (Game.creeps[name] == undefined) {
+      delete Memory.creeps[name];
+    }
+  }
+
   if (Game.spawns.spawn1.energy >= 300) {
     if(harvesters.length < 4) {
       // TODO: add auto naming system for creeps
