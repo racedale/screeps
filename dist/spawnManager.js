@@ -17,12 +17,12 @@ var spawnManager = function spawnManager() {
 
   if (harvesters.length < 8) {
     // TODO: add auto naming system for creeps
-    Game.spawns.spawn1.createCreep([WORK, CARRY, CARRY, MOVE, MOVE], null, { role: 'harvester' });
+    Game.spawns.spawn1.createCreep([WORK, WORK, CARRY, CARRY, MOVE, MOVE], null, { role: 'harvester' });
     console.log('Spawning new harvester');
   } else if (upgraders.length < 4) {
     Game.spawns.spawn1.createCreep([WORK, CARRY, CARRY, MOVE, MOVE, MOVE], null, { role: 'upgrader' });
     console.log('Spawning new upgrader');
-  } else if (builders.length < 4) {
+  } else if (builders.length < 3) {
     Game.spawns.spawn1.createCreep([WORK, WORK, CARRY, MOVE, MOVE], null, { role: 'builder' });
     console.log('Spawning new builder');
   } else {
