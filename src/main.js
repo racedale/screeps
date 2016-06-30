@@ -14,8 +14,10 @@ for (let name in Memory.creeps) {
   }
 }
 
-// Auto create creeps if there is enough energy and not enough creeps
-spawnManager();
+// Only run spawnManager if there is enough energy
+  if (Game.spawns.spawn1.energy >= 300) {
+    spawnManager();
+  }
 
 for(let name in Game.creeps) {
   let creep = Game.creeps[name];

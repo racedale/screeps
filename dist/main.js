@@ -27,8 +27,10 @@ module.exports.loop = function () {
     }
   }
 
-  // Auto create creeps if there is enough energy and not enough creeps
-  (0, _spawnManager2.default)();
+  // Only run spawnManager if there is enough energy
+  if (Game.spawns.spawn1.energy >= 300) {
+    (0, _spawnManager2.default)();
+  }
 
   for (var _name in Game.creeps) {
     var creep = Game.creeps[_name];
