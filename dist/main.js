@@ -1,8 +1,18 @@
 'use strict';
 
-var roleHarvester = require('role.harvester');
-var roleUpgrader = require('role.upgrader');
-var roleBuilder = require('role.builder');
+var _role = require('role.harvester');
+
+var _role2 = _interopRequireDefault(_role);
+
+var _role3 = require('role.upgrader');
+
+var _role4 = _interopRequireDefault(_role3);
+
+var _role5 = require('role.builder');
+
+var _role6 = _interopRequireDefault(_role5);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 module.exports.loop = function () {
   var harvesters = _.filter(Game.creeps, function (creep) {
@@ -59,13 +69,13 @@ module.exports.loop = function () {
   for (var _name in Game.creeps) {
     var creep = Game.creeps[_name];
     if (creep.memory.role == 'harvester') {
-      roleHarvester.run(creep);
+      _role2.default.run(creep);
     }
     if (creep.memory.role == 'upgrader') {
-      roleUpgrader.run(creep);
+      _role4.default.run(creep);
     }
     if (creep.memory.role == 'builder') {
-      roleBuilder.run(creep);
+      _role6.default.run(creep);
     }
   }
 };

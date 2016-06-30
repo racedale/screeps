@@ -1,6 +1,6 @@
-const roleHarvester = require('role.harvester');
-const roleUpgrader = require('role.upgrader');
-const roleBuilder = require('role.builder');
+import roleHarvester from 'role.harvester';
+import roleUpgrader from 'role.upgrader';
+import roleBuilder from 'role.builder';
 
 module.exports.loop = function () {
   let harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
