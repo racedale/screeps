@@ -27,12 +27,13 @@ var spawnManager = function spawnManager() {
     console.log('Spawning new builder');
   } else {
     Game.spawns.spawn1.createCreep([WORK, CARRY, CARRY, MOVE, MOVE], null, { role: 'harvester' });
-    //  console.log('Spawning new harvester');
-    //  Game.spawns.spawn1.createCreep([WORK, CARRY, MOVE, MOVE], null, {role: 'upgrader'});
-    //  console.log('Spawning new upgrader');
-    //  Game.spawns.spawn1.createCreep([WORK, WORK, CARRY, MOVE, MOVE], null, {role: 'builder'});
-    //  console.log('Spawning new builder');
+    //  Game.spawns.spawn1.createCreep(
+    //    [ATTACK, ATTACK, HEAL, MOVE, MOVE],
+    //    null,
+    //    {role: 'warrior'}
+    //  );
   }
+  console.log("Spawn CPU: ", Game.cpu.getUsed());
 };
 
 module.exports = spawnManager;
