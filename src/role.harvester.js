@@ -1,5 +1,5 @@
 
-const roleHarvester = {
+export default {
 
  /** @param {Creep} creep **/
  run(creep) {
@@ -28,5 +28,3 @@ const roleHarvester = {
    }
  }
 };
-
-module.exports = roleHarvester;

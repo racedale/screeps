@@ -1,5 +1,5 @@
 
-const roleUpgrader = {
+export default {
 
  /** @param {Creep} creep **/
  run(creep) {
@@ -24,5 +24,3 @@ const roleUpgrader = {
    }
  }
 };
-
-module.exports = roleUpgrader;

@@ -1,5 +1,5 @@
 
-const roleBuilder = {
+export default {
 
   /** @param {Creep} creep **/
   run(creep) {
@@ -27,5 +27,3 @@ const roleBuilder = {
     }
   }
 };
-
-module.exports = roleBuilder;

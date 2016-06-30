@@ -1,6 +1,9 @@
 "use strict";
 
-var roleUpgrader = {
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = {
 
   /** @param {Creep} creep **/
 
@@ -25,5 +28,3 @@ var roleUpgrader = {
     }
   }
 };
-
-module.exports = roleUpgrader;
