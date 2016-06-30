@@ -14,7 +14,7 @@ var guards = [];
 
 var spawnManager = function spawnManager() {
 
-  if (harvesters.length < 7) {
+  if (harvesters.length < 6) {
     // TODO: add auto naming system for creeps
     Game.spawns.spawn1.createCreep([WORK, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE], null, { role: 'harvester' });
     console.log('Spawning new harvester');
