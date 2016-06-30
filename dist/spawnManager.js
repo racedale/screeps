@@ -25,6 +25,7 @@ var spawnManager = function spawnManager() {
     Game.spawns.spawn1.createCreep([WORK, CARRY, CARRY, MOVE, MOVE, MOVE], null, { role: 'upgrader' });
     console.log('Spawning new upgrader');
   } else {
+    //TODO: alternate spawning extra creeps
     Game.spawns.spawn1.createCreep([WORK, CARRY, CARRY, MOVE, MOVE], null, { role: 'upgrader' });
     //  Game.spawns.spawn1.createCreep(
     //    [ATTACK, ATTACK, TOUGH, TOUGH, TOUGH, TOUGH, MOVE, MOVE],

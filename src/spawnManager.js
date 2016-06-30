@@ -29,6 +29,7 @@ let spawnManager = function() {
     );
     console.log('Spawning new upgrader');
   } else {
+    //TODO: alternate spawning extra creeps
      Game.spawns.spawn1.createCreep(
        [WORK, CARRY, CARRY, MOVE, MOVE],
        null,
