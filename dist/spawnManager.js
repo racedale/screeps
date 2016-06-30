@@ -26,7 +26,7 @@ var spawnManager = function spawnManager() {
     Game.spawns.spawn1.createCreep([WORK, WORK, CARRY, MOVE, MOVE], null, { role: 'builder' });
     console.log('Spawning new builder');
   } else {
-    Game.spawns.spawn1.createCreep([WORK, CARRY, CARRY, MOVE, MOVE], null, { role: 'harvester' });
+    Game.spawns.spawn1.createCreep([WORK, CARRY, CARRY, MOVE, MOVE], null, { role: 'upgrader' });
     //  Game.spawns.spawn1.createCreep(
     //    [ATTACK, ATTACK, HEAL, MOVE, MOVE],
     //    null,
