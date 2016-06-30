@@ -16,5 +16,5 @@ gulp.task('js', () => { // Arrow functions!!
     .pipe(babel({
       presets: ['es2015']
     }))
-    .pipe(gulp.dest('./'))
+    .pipe(gulp.dest('dist'))
  });
