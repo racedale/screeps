@@ -2,7 +2,7 @@
 const roleHarvester = {
 
  /** @param {Creep} creep **/
- run: function(creep) {
+ run(creep) {
    if(creep.carry.energy < creep.carryCapacity) {
      let sources = creep.room.find(FIND_SOURCES);
      if(creep.harvest(sources[0]) == ERR_NOT_IN_RANGE) {
