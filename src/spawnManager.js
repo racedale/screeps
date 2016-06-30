@@ -1,3 +1,9 @@
+let harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
+let upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
+let builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
+let healers = [];
+let guards = [];
+
 let spawnManager = function() {
   // Auto create creeps if there is enough energy and not enough creeps
   if (Game.spawns.spawn1.energy >= 300) {

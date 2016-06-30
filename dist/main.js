@@ -19,17 +19,6 @@ var _spawnManager2 = _interopRequireDefault(_spawnManager);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 module.exports.loop = function () {
-  var harvesters = _.filter(Game.creeps, function (creep) {
-    return creep.memory.role == 'harvester';
-  });
-  var upgraders = _.filter(Game.creeps, function (creep) {
-    return creep.memory.role == 'upgrader';
-  });
-  var builders = _.filter(Game.creeps, function (creep) {
-    return creep.memory.role == 'builder';
-  });
-  var healers = [];
-  var guards = [];
 
   // Clean memory for expired creeps
   for (var name in Memory.creeps) {

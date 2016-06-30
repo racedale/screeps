@@ -6,11 +6,6 @@ import spawnManager from 'spawnManager';
 
 
 module.exports.loop = function () {
-  let harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
-  let upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
-  let builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
-  let healers = [];
-  let guards = [];
 
 // Clean memory for expired creeps
 for (let name in Memory.creeps) {

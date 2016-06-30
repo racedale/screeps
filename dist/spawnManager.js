@@ -1,5 +1,17 @@
 'use strict';
 
+var harvesters = _.filter(Game.creeps, function (creep) {
+  return creep.memory.role == 'harvester';
+});
+var upgraders = _.filter(Game.creeps, function (creep) {
+  return creep.memory.role == 'upgrader';
+});
+var builders = _.filter(Game.creeps, function (creep) {
+  return creep.memory.role == 'builder';
+});
+var healers = [];
+var guards = [];
+
 var spawnManager = function spawnManager() {
   // Auto create creeps if there is enough energy and not enough creeps
   if (Game.spawns.spawn1.energy >= 300) {
