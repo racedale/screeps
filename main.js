@@ -5,12 +5,13 @@ var roleBuilder = require('role.builder');
 module.exports.loop = function () {
   var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
   var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
-  var builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builders');
+  var builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
   var healers = [];
   var guards = [];
 
   if (Game.spawns.spawn1.energy >= 300) {
     if(harvesters.length < 4) {
+      // TODO: add auto naming system for creeps
         Game.spawns.spawn1.createCreep([WORK, CARRY, CARRY, MOVE], null, {role: 'harvester'});
         console.log('Spawning new harvester');
     } else if (upgraders.length < 3) {
