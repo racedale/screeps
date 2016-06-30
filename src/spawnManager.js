@@ -15,7 +15,7 @@ let spawnManager = function() {
       {role: 'harvester'}
     );
     console.log('Spawning new harvester');
-  } else if (upgraders.length < 4) {
+  } else if (upgraders.length < 6) {
     Game.spawns.spawn1.createCreep(
       [WORK, CARRY, CARRY, MOVE, MOVE, MOVE],
       null,
