@@ -12,9 +12,11 @@ var _role5 = require('role.builder');
 
 var _role6 = _interopRequireDefault(_role5);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _spawnManager = require('spawnManager');
 
-// import tower from 'tower';
+var _spawnManager2 = _interopRequireDefault(_spawnManager);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 module.exports.loop = function () {
   var harvesters = _.filter(Game.creeps, function (creep) {
@@ -37,19 +39,7 @@ module.exports.loop = function () {
   }
 
   // Auto create creeps if there is enough energy and not enough creeps
-  if (Game.spawns.spawn1.energy >= 300) {
-    if (harvesters.length < 5) {
-      // TODO: add auto naming system for creeps
-      Game.spawns.spawn1.createCreep([WORK, CARRY, CARRY, MOVE, MOVE], null, { role: 'harvester' });
-      console.log('Spawning new harvester');
-    } else if (upgraders.length < 4) {
-      Game.spawns.spawn1.createCreep([WORK, CARRY, CARRY, MOVE, MOVE, MOVE], null, { role: 'upgrader' });
-      console.log('Spawning new upgrader');
-    } else if (builders.length < 4) {
-      Game.spawns.spawn1.createCreep([WORK, WORK, CARRY, MOVE, MOVE], null, { role: 'builder' });
-      console.log('Spawning new builder');
-    }
-  }
+  (0, _spawnManager2.default)();
 
   for (var _name in Game.creeps) {
     var creep = Game.creeps[_name];
@@ -82,3 +72,4 @@ module.exports.loop = function () {
     }
   }
 };
+// import tower from 'tower';

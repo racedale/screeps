@@ -2,6 +2,8 @@ import roleHarvester from 'role.harvester';
 import roleUpgrader from 'role.upgrader';
 import roleBuilder from 'role.builder';
 // import tower from 'tower';
+import spawnManager from 'spawnManager';
+
 
 module.exports.loop = function () {
   let harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
@@ -18,19 +20,7 @@ for (let name in Memory.creeps) {
 }
 
 // Auto create creeps if there is enough energy and not enough creeps
-if (Game.spawns.spawn1.energy >= 300) {
-  if(harvesters.length < 5) {
-      // TODO: add auto naming system for creeps
-      Game.spawns.spawn1.createCreep([WORK, CARRY, CARRY, MOVE, MOVE], null, {role: 'harvester'});
-      console.log('Spawning new harvester');
-    } else if (upgraders.length < 4) {
-     Game.spawns.spawn1.createCreep([WORK, CARRY, CARRY, MOVE, MOVE, MOVE], null, {role: 'upgrader'});
-     console.log('Spawning new upgrader');
-   } else if (builders.length < 4) {
-     Game.spawns.spawn1.createCreep([WORK, WORK, CARRY, MOVE, MOVE], null, {role: 'builder'});
-     console.log('Spawning new builder');
-   }
- }
+spawnManager();
 
 for(let name in Game.creeps) {
   let creep = Game.creeps[name];
