@@ -10,6 +10,6 @@ gulp.task('js', () => { // Arrow functions!!
     .pipe(gulp.dest('dist'))
 });
 
- gulp.task('default', () => {
+ gulp.task('default', ['js'], () => {
    gulp.watch('./src/**/*.js', ['js']);
  });
