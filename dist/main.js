@@ -28,7 +28,7 @@ module.exports.loop = function () {
   }
 
   // Only run spawnManager if there is enough energy
-  if (Game.spawns.spawn1.spawning != null) {
+  if (Game.spawns.spawn1.spawning === null) {
     if (Game.spawns.spawn1.energy >= 300) {
       (0, _spawnManager2.default)();
     }

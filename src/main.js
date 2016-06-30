@@ -15,7 +15,7 @@ for (let name in Memory.creeps) {
 }
 
 // Only run spawnManager if there is enough energy
-if (Game.spawns.spawn1.spawning != null) {
+if (Game.spawns.spawn1.spawning === null) {
   if (Game.spawns.spawn1.energy >= 300) {
     spawnManager();
   }
