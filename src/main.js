@@ -33,9 +33,10 @@ for(let name in Game.creeps) {
 // Tower code from tutorial
 const towerStructure = Game.getObjectById('TOWER_ID');
 if(towerStructure) {
- let closestDamagedStructure = towerStructure.pos.findClosestByRange(FIND_STRUCTURES, {
+ let closestDamagedStructure = towerStructure.pos.findClosestByRange(FIND_STRUCTURES,
+   {
    filter: (structure) => structure.hits < structure.hitsMax
- });
+   });
  if(closestDamagedStructure) {
    towerStructure.repair(closestDamagedStructure);
  }

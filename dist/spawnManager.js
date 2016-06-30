@@ -16,7 +16,7 @@ var spawnManager = function spawnManager() {
   // Auto create creeps if there is enough energy and not enough creeps
   if (Game.spawns.spawn1.energy >= 300) {
 
-    if (harvesters.length < 5) {
+    if (harvesters.length < 8) {
       // TODO: add auto naming system for creeps
       Game.spawns.spawn1.createCreep([WORK, CARRY, CARRY, MOVE, MOVE], null, { role: 'harvester' });
       console.log('Spawning new harvester');
@@ -27,7 +27,7 @@ var spawnManager = function spawnManager() {
       Game.spawns.spawn1.createCreep([WORK, WORK, CARRY, MOVE, MOVE], null, { role: 'builder' });
       console.log('Spawning new builder');
     } else {
-      //  Game.spawns.spawn1.createCreep([WORK, CARRY, CARRY, MOVE], null, {role: 'harvester'});
+      Game.spawns.spawn1.createCreep([WORK, CARRY, CARRY, MOVE], null, { role: 'harvester' });
       //  console.log('Spawning new harvester');
       //  Game.spawns.spawn1.createCreep([WORK, CARRY, MOVE, MOVE], null, {role: 'upgrader'});
       //  console.log('Spawning new upgrader');
