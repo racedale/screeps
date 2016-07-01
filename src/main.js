@@ -9,15 +9,15 @@ import spawnManager from 'spawnManager';
 // global.Cache = new Cache();
 module.exports.loop = function () {
 
-  // Clean memory for expired creeps
-  for (let name in Memory.creeps) {
-    if (Game.creeps[name] == undefined) {
-      delete Memory.creeps[name];
-    }
-  }
-
-  // Only run spawnManager if there is enough energy
   if (Game.spawns.spawn1.spawning === null) {
+    // Clean memory for expired creeps
+    for (let name in Memory.creeps) {
+      if (Game.creeps[name] == undefined) {
+        delete Memory.creeps[name];
+      }
+    }
+
+    // Only run spawnManager if there is enough energy
     if (Game.spawns.spawn1.energy >= 300) {
       spawnManager();
       // var structures = _.filter(Game.structures, (structure) => structure.structureType == 'STRUCTURE_EXTENSION' );
