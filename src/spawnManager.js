@@ -7,6 +7,8 @@ let name = undefined;
 
 let spawnManager = function() {
 
+
+
   if(harvesters.length < 6) {
     // TODO: add auto naming system for creeps
     name = "harvester" + harvesters.length;
@@ -18,17 +20,21 @@ let spawnManager = function() {
     console.log('Spawning new harvester');
   }
   if (builders.length < 2) {
+    name = "builder" + builders.length;
+
     Game.spawns.spawn1.createCreep(
       [WORK, CARRY, MOVE, MOVE],
-      null,
+      name,
       {role: 'builder'}
     );
     console.log('Spawning new builder');
   }
   if (upgraders.length < 5) {
+    name = "upgrader" + upgraders.length;
+
     Game.spawns.spawn1.createCreep(
       [WORK, CARRY, CARRY, MOVE, MOVE, MOVE],
-      null,
+      name,
       {role: 'upgrader'}
     );
     console.log('Spawning new upgrader');

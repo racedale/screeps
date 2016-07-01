@@ -22,11 +22,15 @@ var spawnManager = function spawnManager() {
     console.log('Spawning new harvester');
   }
   if (builders.length < 2) {
-    Game.spawns.spawn1.createCreep([WORK, CARRY, MOVE, MOVE], null, { role: 'builder' });
+    name = "builder" + builders.length;
+
+    Game.spawns.spawn1.createCreep([WORK, CARRY, MOVE, MOVE], name, { role: 'builder' });
     console.log('Spawning new builder');
   }
   if (upgraders.length < 5) {
-    Game.spawns.spawn1.createCreep([WORK, CARRY, CARRY, MOVE, MOVE, MOVE], null, { role: 'upgrader' });
+    name = "upgrader" + upgraders.length;
+
+    Game.spawns.spawn1.createCreep([WORK, CARRY, CARRY, MOVE, MOVE, MOVE], name, { role: 'upgrader' });
     console.log('Spawning new upgrader');
   } else {
     //TODO: alternate spawning extra creeps
