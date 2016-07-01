@@ -11,11 +11,13 @@ let spawnManager = function() {
     // TODO: add auto naming system for creeps
     name = "harvester" + harvesters.length;
     Game.spawns.spawn1.createCreep(
+      [WORK, CARRY, MOVE, MOVE],
       name,
       {role: 'harvester'}
     );
     console.log('Spawning new harvester');
   }
+  if (builders.length < 2) {
     Game.spawns.spawn1.createCreep(
       [WORK, CARRY, MOVE, MOVE],
       null,
@@ -23,6 +25,7 @@ let spawnManager = function() {
     );
     console.log('Spawning new builder');
   }
+  if (upgraders.length < 5) {
     Game.spawns.spawn1.createCreep(
       [WORK, CARRY, CARRY, MOVE, MOVE, MOVE],
       null,
