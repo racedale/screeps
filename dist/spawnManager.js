@@ -49,8 +49,6 @@ var spawnManager = function spawnManager() {
   //    null,
   //    {role: 'guards'}
   //  );
-
-  console.log("Harvesters: ", harvesters.length, "Upgraders: ", upgraders.length, "Builders: ", builders.length);
   // console.log("Spawn CPU: ", Game.cpu.getUsed());
 };
 
