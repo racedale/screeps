@@ -1,3 +1,4 @@
+import roleUpgrader from 'role.upgrader';
 
 export default {
 
@@ -12,11 +13,13 @@ export default {
     }
 
     if(creep.memory.building) {
-      let targets = creep.room.find(FIND_CONSTRUCTION_SITES);
+      let targets = creep.pos.findClosestByRange(FIND_CONSTRUCTION_SITES);
       if(targets.length) {
-        if(creep.build(targets[0]) == ERR_NOT_IN_RANGE) {
-          creep.moveTo(targets[0]);
+        if(creep.build(targets) == ERR_NOT_IN_RANGE) {
+          creep.moveTo(targets);
         }
+      } else {
+        roleUpgrader.run(creep);
       }
     }
     else {
