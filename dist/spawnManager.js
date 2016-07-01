@@ -37,7 +37,7 @@ var spawnManager = function spawnManager() {
     console.log('Spawning new upgrader');
   }
   // }
-
+  console.log("Harvesters: ", harvesters.length, "Upgraders: ", upgraders.length, "Builders: ", builders.length);
   //TODO: alternate spawning extra creeps
   //  Game.spawns.spawn1.createCreep(
   //    [WORK, CARRY, CARRY, MOVE, MOVE],

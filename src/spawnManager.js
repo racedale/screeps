@@ -30,7 +30,7 @@ let spawnManager = function() {
         {role: creepRole}
       );
       console.log('Spawning new builder');
-    } else if(lowest === upgraders.length) {
+    } else if (lowest === upgraders.length) {
       let creepRole = "upgrader";
       name = creepRole + upgraders.length;
       Game.spawns.spawn1.createCreep(
@@ -41,7 +41,10 @@ let spawnManager = function() {
       console.log('Spawning new upgrader');
     }
   // }
-
+  console.log("Harvesters: ", harvesters.length,
+  "Upgraders: ", upgraders.length,
+  "Builders: ", builders.length
+  );
     //TODO: alternate spawning extra creeps
     //  Game.spawns.spawn1.createCreep(
     //    [WORK, CARRY, CARRY, MOVE, MOVE],

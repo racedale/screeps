@@ -22,10 +22,6 @@ module.exports.loop = function () {
       spawnManager();
       // var structures = _.filter(Game.structures, (structure) => structure.structureType == 'STRUCTURE_EXTENSION' );
       // console.log(structures.energy);
-      console.log("Harvesters: ", harvesters.length,
-      "Upgraders: ", upgraders.length,
-      "Builders: ", builders.length
-      );
     }
   }
 
