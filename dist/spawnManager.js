@@ -20,7 +20,6 @@ var spawnManager = function spawnManager() {
   // if (Game.creeps.length < maxCreeps) {
   var lowest = Math.min(harvesters.length, builders.length, upgraders.length);
 
-  if (lowest === harvesters.length) {
     var creepRole = "harvester";
     name = creepRole + harvesters.length;
     Game.spawns.spawn1.createCreep([WORK, WORK, CARRY, MOVE, MOVE], null, { role: creepRole });
