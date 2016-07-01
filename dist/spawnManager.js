@@ -15,34 +15,41 @@ var name = undefined;
 
 var spawnManager = function spawnManager() {
 
-  if (harvesters.length < 6) {
-    // TODO: add auto naming system for creeps
-    name = "harvester" + harvesters.length;
-    Game.spawns.spawn1.createCreep([WORK, WORK, CARRY, MOVE, MOVE], name, { role: 'harvester' });
+  // choose spawns
+  // let maxCreeps = 20;
+  // if (Game.creeps.length < maxCreeps) {
+  var lowest = Math.min(harvesters.length, builders.length, upgraders.length);
+
+  if (lowest === harvesters.length) {
+    var creepRole = "harvester";
+    name = creepRole + harvesters.length;
+    Game.spawns.spawn1.createCreep([WORK, WORK, CARRY, MOVE, MOVE], null, { role: creepRole });
     console.log('Spawning new harvester');
-  } else if (builders.length < 2) {
-    name = "builder" + builders.length;
-
-    Game.spawns.spawn1.createCreep([WORK, CARRY, CARRY, MOVE, MOVE], name, { role: 'builder' });
+  } else if (lowest === builders.length) {
+    var _creepRole = "builder";
+    name = _creepRole + builders.length;
+    Game.spawns.spawn1.createCreep([WORK, CARRY, CARRY, MOVE, MOVE], null, { role: _creepRole });
     console.log('Spawning new builder');
-  } else if (upgraders.length < 5) {
-    name = "upgrader" + upgraders.length;
-
-    Game.spawns.spawn1.createCreep([WORK, CARRY, MOVE, MOVE, MOVE], name, { role: 'upgrader' });
+  } else if (lowest === upgraders.length) {
+    var _creepRole2 = "upgrader";
+    name = _creepRole2 + upgraders.length;
+    Game.spawns.spawn1.createCreep([WORK, CARRY, MOVE, MOVE, MOVE], null, { role: _creepRole2 });
     console.log('Spawning new upgrader');
-  } else {
-    //TODO: alternate spawning extra creeps
-    //  Game.spawns.spawn1.createCreep(
-    //    [WORK, CARRY, CARRY, MOVE, MOVE],
-    //    null,
-    //    {role: 'upgrader'}
-    //  );
-    //  Game.spawns.spawn1.createCreep(
-    //    [ATTACK, ATTACK, TOUGH, TOUGH, TOUGH, TOUGH, MOVE, MOVE],
-    //    null,
-    //    {role: 'guards'}
-    //  );
   }
+  // }
+
+  //TODO: alternate spawning extra creeps
+  //  Game.spawns.spawn1.createCreep(
+  //    [WORK, CARRY, CARRY, MOVE, MOVE],
+  //    null,
+  //    {role: 'upgrader'}
+  //  );
+  //  Game.spawns.spawn1.createCreep(
+  //    [ATTACK, ATTACK, TOUGH, TOUGH, TOUGH, TOUGH, MOVE, MOVE],
+  //    null,
+  //    {role: 'guards'}
+  //  );
+
   console.log("Harvesters: ", harvesters.length, "Upgraders: ", upgraders.length, "Builders: ", builders.length);
   // console.log("Spawn CPU: ", Game.cpu.getUsed());
 };

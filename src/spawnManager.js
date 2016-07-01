@@ -7,34 +7,41 @@ let name = undefined;
 
 let spawnManager = function() {
 
-  if(harvesters.length < 6) {
-    // TODO: add auto naming system for creeps
-    name = "harvester" + harvesters.length;
-    Game.spawns.spawn1.createCreep(
-      [WORK, WORK, CARRY, MOVE, MOVE],
-      name,
-      {role: 'harvester'}
-    );
-    console.log('Spawning new harvester');
-  } else if (builders.length < 2) {
-    name = "builder" + builders.length;
+  // choose spawns
+  // let maxCreeps = 20;
+  // if (Game.creeps.length < maxCreeps) {
+    let lowest = Math.min(harvesters.length, builders.length, upgraders.length);
 
-    Game.spawns.spawn1.createCreep(
-      [WORK, CARRY, CARRY, MOVE, MOVE],
-      name,
-      {role: 'builder'}
-    );
-    console.log('Spawning new builder');
-  } else if (upgraders.length < 5) {
-    name = "upgrader" + upgraders.length;
+    if (lowest === harvesters.length) {
+      let creepRole = "harvester";
+      name = creepRole + harvesters.length;
+      Game.spawns.spawn1.createCreep(
+        [WORK, WORK, CARRY, MOVE, MOVE],
+        null,
+        {role: creepRole}
+      );
+      console.log('Spawning new harvester');
+    } else if (lowest === builders.length) {
+      let creepRole = "builder";
+      name = creepRole + builders.length;
+      Game.spawns.spawn1.createCreep(
+        [WORK, CARRY, CARRY, MOVE, MOVE],
+        null,
+        {role: creepRole}
+      );
+      console.log('Spawning new builder');
+    } else if(lowest === upgraders.length) {
+      let creepRole = "upgrader";
+      name = creepRole + upgraders.length;
+      Game.spawns.spawn1.createCreep(
+        [WORK, CARRY, MOVE, MOVE, MOVE],
+        null,
+        {role: creepRole}
+      );
+      console.log('Spawning new upgrader');
+    }
+  // }
 
-    Game.spawns.spawn1.createCreep(
-      [WORK, CARRY, MOVE, MOVE, MOVE],
-      name,
-      {role: 'upgrader'}
-    );
-    console.log('Spawning new upgrader');
-  } else {
     //TODO: alternate spawning extra creeps
     //  Game.spawns.spawn1.createCreep(
     //    [WORK, CARRY, CARRY, MOVE, MOVE],
@@ -46,8 +53,6 @@ let spawnManager = function() {
     //    null,
     //    {role: 'guards'}
     //  );
-  }
-  console.log("Harvesters: ", harvesters.length, "Upgraders: ", upgraders.length, "Builders: ", builders.length);
   // console.log("Spawn CPU: ", Game.cpu.getUsed());
 }
 
