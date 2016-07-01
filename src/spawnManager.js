@@ -12,6 +12,7 @@ let spawnManager = function() {
   // if (Game.creeps.length < maxCreeps) {
     let lowest = Math.min(harvesters.length, builders.length, upgraders.length);
 
+    if (lowest === harvesters.length && harvesters.length < 8) {
       let creepRole = "harvester";
       name = creepRole + harvesters.length;
       Game.spawns.spawn1.createCreep(
