@@ -2,6 +2,7 @@
 import roleHarvester from 'role.harvester';
 import roleUpgrader from 'role.upgrader';
 import roleBuilder from 'role.builder';
+import roleRepairer from 'role.repairer';
 // import tower from 'tower';
 import spawnManager from 'spawnManager';
 
@@ -35,6 +36,9 @@ module.exports.loop = function () {
     }
     if(creep.memory.role == 'builder') {
       roleBuilder.run(creep);
+    }
+    if (creep.memory.role == 'repairer') {
+      roleRepairer.run(creep);
     }
     // console.log("For loop:", Game.getUsedCPU());
   }

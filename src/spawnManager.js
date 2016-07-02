@@ -1,5 +1,6 @@
 let harvesters = _.sum(Game.creeps, (creep) => creep.memory.role == 'harvester');
 let upgraders = _.sum(Game.creeps, (creep) => creep.memory.role == 'upgrader');
+let repairers = _.sum(Game.creeps, (creep) => creep.memory.role == 'repairer');
 let builders = _.sum(Game.creeps, (creep) => creep.memory.role == 'builder');
 let healers = [];
 let guards = [];
@@ -14,14 +15,17 @@ let spawnManager = function() {
   if (harvesters == undefined) {
     harvesters = 0;
   }
-  if (builders == undefined) {
-    builders = 0;
-  }
   if (upgraders == undefined) {
     builders = 0;
   }
+  if (repairers == undefined) {
+    repairers = 0;
+  }
+  if (builders == undefined) {
+    builders = 0;
+  }
 
-  let lowest = Math.min(harvesters, builders, upgraders);
+  let lowest = Math.min(harvesters, builders, upgraders, repairers);
 
   if (lowest === harvesters && harvesters < 8) {
     let creepRole = "harvester";
@@ -41,6 +45,15 @@ let spawnManager = function() {
       {role: creepRole}
     );
     console.log('Spawning new builder');
+  } else if (lowest === repairers && repairers < 3) {
+    let creepRole = "repairer";
+    name = creepRole + repairers;
+    Game.spawns.spawn1.createCreep(
+      [WORK, CARRY, MOVE, MOVE],
+      null,
+      {role: creepRole}
+    );
+    console.log('Spawning new repairer');
   } else if (lowest === upgraders && upgraders < 8) {
     let creepRole = "upgrader";
     name = creepRole + upgraders;
@@ -54,6 +67,7 @@ let spawnManager = function() {
 // }
   console.log("Harvesters: ", harvesters,
   "Upgraders: ", upgraders,
+  "Repairers: ", repairers,
   "Builders: ", builders
   );
     //TODO: alternate spawning extra creeps

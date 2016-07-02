@@ -6,6 +6,9 @@ var harvesters = _.sum(Game.creeps, function (creep) {
 var upgraders = _.sum(Game.creeps, function (creep) {
   return creep.memory.role == 'upgrader';
 });
+var repairers = _.sum(Game.creeps, function (creep) {
+  return creep.memory.role == 'repairer';
+});
 var builders = _.sum(Game.creeps, function (creep) {
   return creep.memory.role == 'builder';
 });
@@ -22,14 +25,17 @@ var spawnManager = function spawnManager() {
   if (harvesters == undefined) {
     harvesters = 0;
   }
-  if (builders == undefined) {
-    builders = 0;
-  }
   if (upgraders == undefined) {
     builders = 0;
   }
+  if (repairers == undefined) {
+    repairers = 0;
+  }
+  if (builders == undefined) {
+    builders = 0;
+  }
 
-  var lowest = Math.min(harvesters, builders, upgraders);
+  var lowest = Math.min(harvesters, builders, upgraders, repairers);
 
   if (lowest === harvesters && harvesters < 8) {
     var creepRole = "harvester";
@@ -41,14 +47,19 @@ var spawnManager = function spawnManager() {
     name = _creepRole + builders;
     Game.spawns.spawn1.createCreep([WORK, CARRY, MOVE, MOVE], null, { role: _creepRole });
     console.log('Spawning new builder');
-  } else if (lowest === upgraders && upgraders < 8) {
-    var _creepRole2 = "upgrader";
-    name = _creepRole2 + upgraders;
+  } else if (lowest === repairers && repairers < 3) {
+    var _creepRole2 = "repairer";
+    name = _creepRole2 + repairers;
     Game.spawns.spawn1.createCreep([WORK, CARRY, MOVE, MOVE], null, { role: _creepRole2 });
+    console.log('Spawning new repairer');
+  } else if (lowest === upgraders && upgraders < 8) {
+    var _creepRole3 = "upgrader";
+    name = _creepRole3 + upgraders;
+    Game.spawns.spawn1.createCreep([WORK, CARRY, MOVE, MOVE], null, { role: _creepRole3 });
     console.log('Spawning new upgrader');
   }
   // }
-  console.log("Harvesters: ", harvesters, "Upgraders: ", upgraders, "Builders: ", builders);
+  console.log("Harvesters: ", harvesters, "Upgraders: ", upgraders, "Repairers: ", repairers, "Builders: ", builders);
   //TODO: alternate spawning extra creeps
   //  Game.spawns.spawn1.createCreep(
   //    [WORK, CARRY, CARRY, MOVE, MOVE],

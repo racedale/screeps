@@ -12,6 +12,10 @@ var _role5 = require('role.builder');
 
 var _role6 = _interopRequireDefault(_role5);
 
+var _role7 = require('role.repairer');
+
+var _role8 = _interopRequireDefault(_role7);
+
 var _spawnManager = require('spawnManager');
 
 var _spawnManager2 = _interopRequireDefault(_spawnManager);
@@ -19,7 +23,6 @@ var _spawnManager2 = _interopRequireDefault(_spawnManager);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // global.Cache = new Cache();
-// import Cache from 'Cache';
 module.exports.loop = function () {
 
   if (Game.spawns.spawn1.spawning === null) {
@@ -49,6 +52,9 @@ module.exports.loop = function () {
     if (creep.memory.role == 'builder') {
       _role6.default.run(creep);
     }
+    if (creep.memory.role == 'repairer') {
+      _role8.default.run(creep);
+    }
     // console.log("For loop:", Game.getUsedCPU());
   }
 
@@ -71,3 +77,4 @@ module.exports.loop = function () {
   }
 };
 // import tower from 'tower';
+// import Cache from 'Cache';
