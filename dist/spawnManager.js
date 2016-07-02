@@ -38,7 +38,7 @@ var spawnManager = function spawnManager() {
   var lowest = Math.min(harvesters, builders, upgraders, repairers);
   console.log("Lowest: " + lowest);
 
-  if (lowest === upgraders && upgraders < 6) {
+  if (lowest === upgraders && upgraders < 4) {
     var creepRole = "upgrader";
     name = creepRole + upgraders;
     Game.spawns.spawn1.createCreep([WORK, CARRY, MOVE, MOVE], null, { role: creepRole });
