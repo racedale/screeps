@@ -58,11 +58,11 @@ let spawnManager = function() {
     );
     console.log('Spawning new repairer');
     logCreeps();
-  } else if (lowest === harvesters && harvesters < 8) {
+  } else if (harvesters < 8) {
     let creepRole = "harvester";
     name = creepRole + harvesters;
     Game.spawns.spawn1.createCreep(
-      [WORK, WORK, CARRY, MOVE, MOVE],
+      [WORK, WORK, CARRY, CARRY, MOVE, MOVE],
       null,
       {role: creepRole}
     );

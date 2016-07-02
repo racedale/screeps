@@ -25,7 +25,7 @@ module.exports.loop = function () {
       totalEnergy += extensions[i].energy;
     }
     totalEnergy += Game.spawns.spawn1.energy;
-    if (totalEnergy >= 350) {
+    if (totalEnergy >= 400) {
       spawnManager();
     }
   }
