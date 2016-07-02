@@ -24,10 +24,10 @@ exports.default = {
     }
 
     if (creep.memory.building) {
-      var targets = creep.pos.findClosestByRange(FIND_CONSTRUCTION_SITES);
-      if (targets.length) {
-        if (creep.build(targets) == ERR_NOT_IN_RANGE) {
-          creep.moveTo(targets);
+      var constructionSite = creep.pos.findClosestByRange(FIND_CONSTRUCTION_SITES);
+      if (constructionSite) {
+        if (creep.build(constructionSite) == ERR_NOT_IN_RANGE) {
+          creep.moveTo(constructionSite);
         }
       } else {
         _role2.default.run(creep);
