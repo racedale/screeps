@@ -1,43 +1,54 @@
 'use strict';
 
-var harvesters = _.filter(Game.creeps, function (creep) {
+var harvesters = _.sum(Game.creeps, function (creep) {
   return creep.memory.role == 'harvester';
 });
-var upgraders = _.filter(Game.creeps, function (creep) {
+var upgraders = _.sum(Game.creeps, function (creep) {
   return creep.memory.role == 'upgrader';
 });
-var builders = _.filter(Game.creeps, function (creep) {
+var builders = _.sum(Game.creeps, function (creep) {
   return creep.memory.role == 'builder';
 });
 var healers = [];
 var guards = [];
 var name = undefined;
+var lowest = 0;
 
 var spawnManager = function spawnManager() {
 
   // choose spawns
   // let maxCreeps = 20;
   // if (Game.creeps.length < maxCreeps) {
-  var lowest = Math.min(harvesters.length, builders.length, upgraders.length);
+  if (harvesters == undefined) {
+    harvesters = 0;
+  }
+  if (builders == undefined) {
+    builders = 0;
+  }
+  if (upgraders == undefined) {
+    builders = 0;
+  }
 
-  if (lowest === harvesters.length && harvesters.length < 8) {
+  var lowest = Math.min(harvesters, builders, upgraders);
+
+  if (lowest === harvesters) {
     var creepRole = "harvester";
-    name = creepRole + harvesters.length;
+    name = creepRole + harvesters;
     Game.spawns.spawn1.createCreep([WORK, WORK, CARRY, MOVE, MOVE], null, { role: creepRole });
     console.log('Spawning new harvester');
-  } else if (lowest === builders.length) {
+  } else if (lowest === builders) {
     var _creepRole = "builder";
-    name = _creepRole + builders.length;
+    name = _creepRole + builders;
     Game.spawns.spawn1.createCreep([WORK, CARRY, CARRY, MOVE, MOVE], null, { role: _creepRole });
     console.log('Spawning new builder');
-  } else if (lowest === upgraders.length) {
+  } else if (lowest === upgraders) {
     var _creepRole2 = "upgrader";
-    name = _creepRole2 + upgraders.length;
+    name = _creepRole2 + upgraders;
     Game.spawns.spawn1.createCreep([WORK, CARRY, MOVE, MOVE, MOVE], null, { role: _creepRole2 });
     console.log('Spawning new upgrader');
   }
   // }
-  console.log("Harvesters: ", harvesters.length, "Upgraders: ", upgraders.length, "Builders: ", builders.length);
+  console.log("Harvesters: ", harvesters, "Upgraders: ", upgraders, "Builders: ", builders);
   //TODO: alternate spawning extra creeps
   //  Game.spawns.spawn1.createCreep(
   //    [WORK, CARRY, CARRY, MOVE, MOVE],

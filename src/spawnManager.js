@@ -1,49 +1,60 @@
-let harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
-let upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
-let builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
+let harvesters = _.sum(Game.creeps, (creep) => creep.memory.role == 'harvester');
+let upgraders = _.sum(Game.creeps, (creep) => creep.memory.role == 'upgrader');
+let builders = _.sum(Game.creeps, (creep) => creep.memory.role == 'builder');
 let healers = [];
 let guards = [];
 let name = undefined;
+let lowest = 0;
 
 let spawnManager = function() {
 
   // choose spawns
   // let maxCreeps = 20;
   // if (Game.creeps.length < maxCreeps) {
-    let lowest = Math.min(harvesters.length, builders.length, upgraders.length);
+  if (harvesters == undefined) {
+    harvesters = 0;
+  }
+  if (builders == undefined) {
+    builders = 0;
+  }
+  if (upgraders == undefined) {
+    builders = 0;
+  }
 
-    if (lowest === harvesters.length && harvesters.length < 8) {
-      let creepRole = "harvester";
-      name = creepRole + harvesters.length;
-      Game.spawns.spawn1.createCreep(
-        [WORK, WORK, CARRY, MOVE, MOVE],
-        null,
-        {role: creepRole}
-      );
-      console.log('Spawning new harvester');
-    } else if (lowest === builders.length) {
-      let creepRole = "builder";
-      name = creepRole + builders.length;
-      Game.spawns.spawn1.createCreep(
-        [WORK, CARRY, CARRY, MOVE, MOVE],
-        null,
-        {role: creepRole}
-      );
-      console.log('Spawning new builder');
-    } else if (lowest === upgraders.length) {
-      let creepRole = "upgrader";
-      name = creepRole + upgraders.length;
-      Game.spawns.spawn1.createCreep(
-        [WORK, CARRY, MOVE, MOVE, MOVE],
-        null,
-        {role: creepRole}
-      );
-      console.log('Spawning new upgrader');
-    }
-  // }
-  console.log("Harvesters: ", harvesters.length,
-  "Upgraders: ", upgraders.length,
-  "Builders: ", builders.length
+  let lowest = Math.min(harvesters, builders, upgraders);
+
+  if (lowest === harvesters) {
+    let creepRole = "harvester";
+    name = creepRole + harvesters;
+    Game.spawns.spawn1.createCreep(
+      [WORK, WORK, CARRY, MOVE, MOVE],
+      null,
+      {role: creepRole}
+    );
+    console.log('Spawning new harvester');
+  } else if (lowest === builders) {
+    let creepRole = "builder";
+    name = creepRole + builders;
+    Game.spawns.spawn1.createCreep(
+      [WORK, CARRY, CARRY, MOVE, MOVE],
+      null,
+      {role: creepRole}
+    );
+    console.log('Spawning new builder');
+  } else if (lowest === upgraders) {
+    let creepRole = "upgrader";
+    name = creepRole + upgraders;
+    Game.spawns.spawn1.createCreep(
+      [WORK, CARRY, MOVE, MOVE, MOVE],
+      null,
+      {role: creepRole}
+    );
+    console.log('Spawning new upgrader');
+  }
+// }
+  console.log("Harvesters: ", harvesters,
+  "Upgraders: ", upgraders,
+  "Builders: ", builders
   );
     //TODO: alternate spawning extra creeps
     //  Game.spawns.spawn1.createCreep(
