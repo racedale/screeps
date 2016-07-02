@@ -26,16 +26,18 @@ let spawnManager = function() {
   }
 
   let lowest = Math.min(harvesters, builders, upgraders, repairers);
+  console.log("Lowest: " + lowest);
 
-  if (lowest === harvesters && harvesters < 8) {
-    let creepRole = "harvester";
-    name = creepRole + harvesters;
-    Game.spawns.spawn1.createCreep(
-      [WORK, CARRY, MOVE, MOVE],
-      null,
-      {role: creepRole}
-    );
-    console.log('Spawning new harvester');
+  if (lowest === upgraders && upgraders < 6) {
+   let creepRole = "upgrader";
+   name = creepRole + upgraders;
+   Game.spawns.spawn1.createCreep(
+     [WORK, CARRY, MOVE, MOVE],
+     null,
+     {role: creepRole}
+   );
+   console.log('Spawning new upgrader');
+   logCreeps();
   } else if (lowest === builders && builders < 6) {
     let creepRole = "builder";
     name = creepRole + builders;
@@ -45,6 +47,7 @@ let spawnManager = function() {
       {role: creepRole}
     );
     console.log('Spawning new builder');
+    logCreeps();
   } else if (lowest === repairers && repairers < 3) {
     let creepRole = "repairer";
     name = creepRole + repairers;
@@ -54,23 +57,27 @@ let spawnManager = function() {
       {role: creepRole}
     );
     console.log('Spawning new repairer');
-  } else if (lowest === upgraders && upgraders < 6) {
-    let creepRole = "upgrader";
-    name = creepRole + upgraders;
+    logCreeps();
+  } else if (lowest === harvesters && harvesters < 8) {
+    let creepRole = "harvester";
+    name = creepRole + harvesters;
     Game.spawns.spawn1.createCreep(
       [WORK, CARRY, MOVE, MOVE],
       null,
       {role: creepRole}
     );
-    console.log('Spawning new upgrader');
+    console.log('Spawning new harvester');
+    logCreeps();
   }
 // }
-  console.log("Harvesters: ", harvesters,
-  "Upgraders: ", upgraders,
-  "Repairers: ", repairers,
-  "Builders: ", builders
-  );
-    //TODO: alternate spawning extra creeps
+  function logCreeps() {
+    console.log("Harvesters: ", harvesters,
+    "Upgraders: ", upgraders,
+    "Repairers: ", repairers,
+    "Builders: ", builders
+    );
+  }
+  //TODO: alternate spawning extra creeps
     //  Game.spawns.spawn1.createCreep(
     //    [WORK, CARRY, CARRY, MOVE, MOVE],
     //    null,
