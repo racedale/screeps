@@ -27,7 +27,7 @@ let spawnManager = function() {
     let creepRole = "harvester";
     name = creepRole + harvesters;
     Game.spawns.spawn1.createCreep(
-      [WORK, WORK, CARRY, MOVE, MOVE],
+      [WORK, CARRY, MOVE, MOVE],
       null,
       {role: creepRole}
     );
@@ -36,7 +36,7 @@ let spawnManager = function() {
     let creepRole = "builder";
     name = creepRole + builders;
     Game.spawns.spawn1.createCreep(
-      [WORK, CARRY, CARRY, MOVE, MOVE],
+      [WORK, CARRY, MOVE, MOVE],
       null,
       {role: creepRole}
     );
@@ -45,7 +45,7 @@ let spawnManager = function() {
     let creepRole = "upgrader";
     name = creepRole + upgraders;
     Game.spawns.spawn1.createCreep(
-      [WORK, CARRY, MOVE, MOVE, MOVE],
+      [WORK, CARRY, MOVE, MOVE],
       null,
       {role: creepRole}
     );

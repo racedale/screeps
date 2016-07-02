@@ -34,17 +34,17 @@ var spawnManager = function spawnManager() {
   if (lowest === harvesters) {
     var creepRole = "harvester";
     name = creepRole + harvesters;
-    Game.spawns.spawn1.createCreep([WORK, WORK, CARRY, MOVE, MOVE], null, { role: creepRole });
+    Game.spawns.spawn1.createCreep([WORK, CARRY, MOVE, MOVE], null, { role: creepRole });
     console.log('Spawning new harvester');
   } else if (lowest === builders) {
     var _creepRole = "builder";
     name = _creepRole + builders;
-    Game.spawns.spawn1.createCreep([WORK, CARRY, CARRY, MOVE, MOVE], null, { role: _creepRole });
+    Game.spawns.spawn1.createCreep([WORK, CARRY, MOVE, MOVE], null, { role: _creepRole });
     console.log('Spawning new builder');
   } else if (lowest === upgraders) {
     var _creepRole2 = "upgrader";
     name = _creepRole2 + upgraders;
-    Game.spawns.spawn1.createCreep([WORK, CARRY, MOVE, MOVE, MOVE], null, { role: _creepRole2 });
+    Game.spawns.spawn1.createCreep([WORK, CARRY, MOVE, MOVE], null, { role: _creepRole2 });
     console.log('Spawning new upgrader');
   }
   // }
