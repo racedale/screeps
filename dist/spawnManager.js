@@ -31,17 +31,17 @@ var spawnManager = function spawnManager() {
 
   var lowest = Math.min(harvesters, builders, upgraders);
 
-  if (lowest === harvesters) {
+  if (lowest === harvesters && harvesters < 8) {
     var creepRole = "harvester";
     name = creepRole + harvesters;
     Game.spawns.spawn1.createCreep([WORK, CARRY, MOVE, MOVE], null, { role: creepRole });
     console.log('Spawning new harvester');
-  } else if (lowest === builders) {
+  } else if (lowest === builders && builders < 6) {
     var _creepRole = "builder";
     name = _creepRole + builders;
     Game.spawns.spawn1.createCreep([WORK, CARRY, MOVE, MOVE], null, { role: _creepRole });
     console.log('Spawning new builder');
-  } else if (lowest === upgraders) {
+  } else if (lowest === upgraders && upgraders < 8) {
     var _creepRole2 = "upgrader";
     name = _creepRole2 + upgraders;
     Game.spawns.spawn1.createCreep([WORK, CARRY, MOVE, MOVE], null, { role: _creepRole2 });
