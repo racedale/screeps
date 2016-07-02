@@ -34,10 +34,16 @@ module.exports.loop = function () {
     }
 
     // Only run spawnManager if there is enough energy
-    if (Game.spawns.spawn1.energy >= 300) {
+    var totalEnergy = 0;
+    var extensions = _.filter(Game.structures, function (structure) {
+      return structure.structureType == STRUCTURE_EXTENSION;
+    });
+    for (var i = 0; i < extensions.length; i++) {
+      totalEnergy += extensions[i].energy;
+    }
+    totalEnergy += Game.spawns.spawn1.energy;
+    if (totalEnergy >= 350) {
       (0, _spawnManager2.default)();
-      // var structures = _.filter(Game.structures, (structure) => structure.structureType == 'STRUCTURE_EXTENSION' );
-      // console.log(structures.energy);
     }
   }
 
