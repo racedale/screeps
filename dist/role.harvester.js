@@ -20,7 +20,7 @@ exports.default = {
         creep.moveTo(source);
       }
     } else {
-      var targets = creep.room.find(FIND_STRUCTURES, {
+      var targets = creep.room.find(FIND_MY_STRUCTURES, {
         filter: function filter(structure) {
           return (structure.structureType == STRUCTURE_EXTENSION || structure.structureType == STRUCTURE_SPAWN || structure.structureType == STRUCTURE_CONTAINER || structure.structureType == STRUCTURE_TOWER) && structure.energy < structure.energyCapacity;
         }

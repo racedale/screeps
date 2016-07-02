@@ -16,7 +16,7 @@ export default {
      }
    }
    else {
-     let targets = creep.room.find(FIND_STRUCTURES, {
+     let targets = creep.room.find(FIND_MY_STRUCTURES, {
        filter: (structure) => {
          return (
            structure.structureType == STRUCTURE_EXTENSION ||
