@@ -54,7 +54,7 @@ let spawnManager = function() {
       {role: creepRole}
     );
     console.log('Spawning new repairer');
-  } else if (lowest === upgraders && upgraders < 8) {
+  } else if (lowest === upgraders && upgraders < 6) {
     let creepRole = "upgrader";
     name = creepRole + upgraders;
     Game.spawns.spawn1.createCreep(

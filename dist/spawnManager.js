@@ -52,7 +52,7 @@ var spawnManager = function spawnManager() {
     name = _creepRole2 + repairers;
     Game.spawns.spawn1.createCreep([WORK, CARRY, MOVE, MOVE], null, { role: _creepRole2 });
     console.log('Spawning new repairer');
-  } else if (lowest === upgraders && upgraders < 8) {
+  } else if (lowest === upgraders && upgraders < 6) {
     var _creepRole3 = "upgrader";
     name = _creepRole3 + upgraders;
     Game.spawns.spawn1.createCreep([WORK, CARRY, MOVE, MOVE], null, { role: _creepRole3 });
