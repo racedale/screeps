@@ -38,31 +38,78 @@ var spawnManager = function spawnManager() {
   var lowest = Math.min(harvesters, builders, upgraders, repairers);
   console.log("Lowest: " + lowest);
 
-  if (lowest === upgraders && upgraders < 4) {
-    var creepRole = "upgrader";
-    name = creepRole + upgraders;
-    Game.spawns.spawn1.createCreep([WORK, CARRY, MOVE, MOVE], null, { role: creepRole });
-    console.log('Spawning new upgrader');
-    logCreeps();
-  } else if (lowest === builders && builders < 6) {
-    var _creepRole = "builder";
-    name = _creepRole + builders;
-    Game.spawns.spawn1.createCreep([WORK, CARRY, MOVE, MOVE], null, { role: _creepRole });
-    console.log('Spawning new builder');
-    logCreeps();
-  } else if (lowest === repairers && repairers < 3) {
-    var _creepRole2 = "repairer";
-    name = _creepRole2 + repairers;
-    Game.spawns.spawn1.createCreep([WORK, CARRY, MOVE, MOVE], null, { role: _creepRole2 });
-    console.log('Spawning new repairer');
-    logCreeps();
-  } else if (harvesters < 8) {
-    var _creepRole3 = "harvester";
-    name = _creepRole3 + harvesters;
-    Game.spawns.spawn1.createCreep([WORK, CARRY, CARRY, MOVE, MOVE], null, { role: _creepRole3 });
-    console.log('Spawning new harvester');
-    logCreeps();
+  if (lowest == harvesters || harvesters < 7) {
+    var priority = 1;
+  } else if (lowest != harvesters && lowest == builders) {
+    var priority = 2
+  } else if (lowest != harvesters && lowest == repairers) {
+    var priority = 3
+  } else if (lowest != harvesters && lowest == upgraders) {
+    var priority = 4
+  } 
+
+  switch (priority) {
+    case 1:
+      var _creepRole3 = "harvester";
+      name = _creepRole3 + harvesters;
+      Game.spawns.spawn1.createCreep([WORK, CARRY, CARRY, MOVE, MOVE], null, { role: _creepRole3 });
+      console.log('Spawning new harvester');
+      logCreeps();
+      break;
+    case 2:
+      var _creepRole = "builder";
+      name = _creepRole + builders;
+      Game.spawns.spawn1.createCreep([WORK, CARRY, MOVE, MOVE], null, { role: _creepRole });
+      console.log('Spawning new builder');
+      logCreeps();
+      break;
+    case 3:
+      var _creepRole2 = "repairer";
+      name = _creepRole2 + repairers;
+      Game.spawns.spawn1.createCreep([WORK, CARRY, MOVE, MOVE], null, { role: _creepRole2 });
+      console.log('Spawning new repairer');
+      logCreeps();
+      break;
+    case 4:
+      var creepRole = "upgrader";
+      name = creepRole + upgraders;
+      Game.spawns.spawn1.createCreep([WORK, CARRY, MOVE, MOVE], null, { role: creepRole });
+      console.log('Spawning new upgrader');
+      logCreeps();
+      break;
+    default:
+      var _creepRole3 = "harvester";
+      name = _creepRole3 + harvesters;
+      Game.spawns.spawn1.createCreep([WORK, CARRY, CARRY, MOVE, MOVE], null, { role: _creepRole3 });
+      console.log('Spawning new harvester');
+      logCreeps();
   }
+
+  // if (lowest === upgraders && upgraders < 4) {
+  //   var creepRole = "upgrader";
+  //   name = creepRole + upgraders;
+  //   Game.spawns.spawn1.createCreep([WORK, CARRY, MOVE, MOVE], null, { role: creepRole });
+  //   console.log('Spawning new upgrader');
+  //   logCreeps();
+  // } else if (lowest === builders && builders < 6) {
+  //   var _creepRole = "builder";
+  //   name = _creepRole + builders;
+  //   Game.spawns.spawn1.createCreep([WORK, CARRY, MOVE, MOVE], null, { role: _creepRole });
+  //   console.log('Spawning new builder');
+  //   logCreeps();
+  // } else if (lowest === repairers && repairers < 3) {
+  //   var _creepRole2 = "repairer";
+  //   name = _creepRole2 + repairers;
+  //   Game.spawns.spawn1.createCreep([WORK, CARRY, MOVE, MOVE], null, { role: _creepRole2 });
+  //   console.log('Spawning new repairer');
+  //   logCreeps();
+  // } else if (harvesters < 8) {
+  //   var _creepRole3 = "harvester";
+  //   name = _creepRole3 + harvesters;
+  //   Game.spawns.spawn1.createCreep([WORK, CARRY, CARRY, MOVE, MOVE], null, { role: _creepRole3 });
+  //   console.log('Spawning new harvester');
+  //   logCreeps();
+  // }
   // }
   function logCreeps() {
     console.log("Harvesters: ", harvesters, "Upgraders: ", upgraders, "Repairers: ", repairers, "Builders: ", builders);
