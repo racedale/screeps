@@ -35,8 +35,7 @@ var spawnManager = function spawnManager() {
   var lowest = Math.min(harvesters, builders, upgraders, repairers);
 
   // choose spawns
-  // let maxCreeps = 20;
-  // if (Game.creeps.length < maxCreeps) {
+
   if (lowest == harvesters || harvesters < 7) {
     var priority = 1;
   } else if (lowest != harvesters && lowest == builders) {
@@ -49,47 +48,50 @@ var spawnManager = function spawnManager() {
 
   var creepRole;
 
-  switch (priority) {
-    case 1:
-      logCreeps();
-      creepRole = "harvester";
-      name = creepRole + harvesters; // For auto-naming, not used yet
-      Game.spawns.spawn1.createCreep([WORK, CARRY, CARRY, MOVE, MOVE], null, { role: creepRole });
-      console.log('Spawning new harvester');
-      break;
+  var maxCreeps = 20;
+  if (Game.spawns.spawn1.room.find(FIND_MY_CREEPS).length < maxCreeps) {
 
-    case 2:
-      logCreeps();
-      creepRole = "builder";
-      name = creepRole + builders; // For auto-naming, not used yet
-      Game.spawns.spawn1.createCreep([WORK, CARRY, MOVE, MOVE], null, { role: creepRole });
-      console.log('Spawning new builder');
-      break;
+    switch (priority) {
+      case 1:
+        logCreeps();
+        creepRole = "harvester";
+        name = creepRole + harvesters; // For auto-naming, not used yet
+        Game.spawns.spawn1.createCreep([WORK, CARRY, CARRY, MOVE, MOVE], null, { role: creepRole });
+        console.log('Spawning new harvester');
+        break;
 
-    case 3:
-      logCreeps();
-      creepRole = "repairer";
-      name = creepRole + repairers; // For auto-naming, not used yet
-      Game.spawns.spawn1.createCreep([WORK, CARRY, MOVE, MOVE], null, { role: creepRole });
-      console.log('Spawning new repairer');
-      break;
+      case 2:
+        logCreeps();
+        creepRole = "builder";
+        name = creepRole + builders; // For auto-naming, not used yet
+        Game.spawns.spawn1.createCreep([WORK, CARRY, MOVE, MOVE], null, { role: creepRole });
+        console.log('Spawning new builder');
+        break;
 
-    case 4:
-      logCreeps();
-      creepRole = "upgrader";
-      name = creepRole + upgraders; // For auto-naming, not used yet
-      Game.spawns.spawn1.createCreep([WORK, CARRY, MOVE, MOVE], null, { role: creepRole });
-      console.log('Spawning new upgrader');
-      break;
+      case 3:
+        logCreeps();
+        creepRole = "repairer";
+        name = creepRole + repairers; // For auto-naming, not used yet
+        Game.spawns.spawn1.createCreep([WORK, CARRY, MOVE, MOVE], null, { role: creepRole });
+        console.log('Spawning new repairer');
+        break;
 
-    default:
-      logCreeps();
-      creepRole = "harvester";
-      name = creepRole + harvesters; // For auto-naming, not used yet
-      Game.spawns.spawn1.createCreep([WORK, CARRY, CARRY, MOVE, MOVE], null, { role: creepRole });
-      console.log('Spawning new harvester');
+      case 4:
+        logCreeps();
+        creepRole = "upgrader";
+        name = creepRole + upgraders; // For auto-naming, not used yet
+        Game.spawns.spawn1.createCreep([WORK, CARRY, MOVE, MOVE], null, { role: creepRole });
+        console.log('Spawning new upgrader');
+        break;
+
+      default:
+        logCreeps();
+        creepRole = "builder";
+        name = creepRole + builders; // For auto-naming, not used yet
+        Game.spawns.spawn1.createCreep([WORK, CARRY, CARRY, MOVE, MOVE], null, { role: creepRole });
+        console.log('Spawning new builder');
+    }
   }
-
   // if (lowest === upgraders && upgraders < 4) {
   //  let creepRole = "upgrader";
   //  name = creepRole + upgraders;
