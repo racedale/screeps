@@ -30,62 +30,66 @@ let spawnManager = function() {
   }
 
   var creepRole;
-  
+
   switch (priority) {
     case 1:
     logCreeps();
-      creepRole = "harvester";
-      name = creepRole + harvesters;
-      Game.spawns.spawn1.createCreep(
-        [WORK, CARRY, CARRY, MOVE, MOVE],
-        null,
-        {role: creepRole}
-      );
-      console.log('Spawning new harvester');
-      break;
+    creepRole = "harvester";
+    name = creepRole + harvesters;
+    Game.spawns.spawn1.createCreep(
+      [WORK, CARRY, CARRY, MOVE, MOVE],
+      null,
+      {role: creepRole}
+    );
+    console.log('Spawning new harvester');
+    break;
+
     case 2:
     logCreeps();
-      creepRole = "builder";
-      name = creepRole + builders;
-      Game.spawns.spawn1.createCreep(
-        [WORK, CARRY, MOVE, MOVE],
-        null,
-        {role: creepRole}
-      );
-      console.log('Spawning new builder');
-      break;
+    creepRole = "builder";
+    name = creepRole + builders;
+    Game.spawns.spawn1.createCreep(
+      [WORK, CARRY, MOVE, MOVE],
+      null,
+      {role: creepRole}
+    );
+    console.log('Spawning new builder');
+    break;
+
     case 3:
     logCreeps();
-      creepRole = "repairer";
-      name = creepRole + repairers;
-      Game.spawns.spawn1.createCreep(
-        [WORK, CARRY, MOVE, MOVE],
-        null,
-        {role: creepRole}
-      );
-      console.log('Spawning new repairer');
-      break;
+    creepRole = "repairer";
+    name = creepRole + repairers;
+    Game.spawns.spawn1.createCreep(
+      [WORK, CARRY, MOVE, MOVE],
+      null,
+      {role: creepRole}
+    );
+    console.log('Spawning new repairer');
+    break;
+
     case 4:
     logCreeps();
-      creepRole = "upgrader";
-      name = creepRole + upgraders;
-      Game.spawns.spawn1.createCreep(
-        [WORK, CARRY, MOVE, MOVE],
-        null,
-        {role: creepRole}
-      );
-      console.log('Spawning new upgrader');
-      break;
+    creepRole = "upgrader";
+    name = creepRole + upgraders;
+    Game.spawns.spawn1.createCreep(
+      [WORK, CARRY, MOVE, MOVE],
+      null,
+      {role: creepRole}
+    );
+    console.log('Spawning new upgrader');
+    break;
+
     default:
     logCreeps();
-      creepRole = "harvester";
-      name = creepRole + harvesters;
-      Game.spawns.spawn1.createCreep(
-        [WORK, CARRY, CARRY, MOVE, MOVE],
-        null,
-        {role: creepRole}
-      );
-      console.log('Spawning new harvester');
+    creepRole = "harvester";
+    name = creepRole + harvesters;
+    Game.spawns.spawn1.createCreep(
+      [WORK, CARRY, CARRY, MOVE, MOVE],
+      null,
+      {role: creepRole}
+    );
+    console.log('Spawning new harvester');
   }
 
   // if (lowest === upgraders && upgraders < 4) {

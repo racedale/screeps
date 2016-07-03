@@ -57,6 +57,7 @@ var spawnManager = function spawnManager() {
       Game.spawns.spawn1.createCreep([WORK, CARRY, CARRY, MOVE, MOVE], null, { role: creepRole });
       console.log('Spawning new harvester');
       break;
+
     case 2:
       logCreeps();
       creepRole = "builder";
@@ -64,6 +65,7 @@ var spawnManager = function spawnManager() {
       Game.spawns.spawn1.createCreep([WORK, CARRY, MOVE, MOVE], null, { role: creepRole });
       console.log('Spawning new builder');
       break;
+
     case 3:
       logCreeps();
       creepRole = "repairer";
@@ -71,6 +73,7 @@ var spawnManager = function spawnManager() {
       Game.spawns.spawn1.createCreep([WORK, CARRY, MOVE, MOVE], null, { role: creepRole });
       console.log('Spawning new repairer');
       break;
+
     case 4:
       logCreeps();
       creepRole = "upgrader";
@@ -78,6 +81,7 @@ var spawnManager = function spawnManager() {
       Game.spawns.spawn1.createCreep([WORK, CARRY, MOVE, MOVE], null, { role: creepRole });
       console.log('Spawning new upgrader');
       break;
+
     default:
       logCreeps();
       creepRole = "harvester";
