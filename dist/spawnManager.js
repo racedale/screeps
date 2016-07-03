@@ -59,7 +59,7 @@ var spawnManager = function spawnManager() {
   } else if (harvesters < 8) {
     var _creepRole3 = "harvester";
     name = _creepRole3 + harvesters;
-    Game.spawns.spawn1.createCreep([WORK, WORK, CARRY, CARRY, MOVE, MOVE], null, { role: _creepRole3 });
+    Game.spawns.spawn1.createCreep([WORK, CARRY, CARRY, MOVE, MOVE], null, { role: _creepRole3 });
     console.log('Spawning new harvester');
     logCreeps();
   }

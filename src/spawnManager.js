@@ -62,7 +62,7 @@ let spawnManager = function() {
     let creepRole = "harvester";
     name = creepRole + harvesters;
     Game.spawns.spawn1.createCreep(
-      [WORK, WORK, CARRY, CARRY, MOVE, MOVE],
+      [WORK, CARRY, CARRY, MOVE, MOVE],
       null,
       {role: creepRole}
     );
