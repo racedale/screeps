@@ -29,10 +29,12 @@ let spawnManager = function() {
     var priority = 4
   }
 
+  var creepRole;
+  
   switch (priority) {
     case 1:
     logCreeps();
-      let creepRole = "harvester";
+      creepRole = "harvester";
       name = creepRole + harvesters;
       Game.spawns.spawn1.createCreep(
         [WORK, CARRY, CARRY, MOVE, MOVE],
@@ -43,7 +45,7 @@ let spawnManager = function() {
       break;
     case 2:
     logCreeps();
-      let creepRole = "builder";
+      creepRole = "builder";
       name = creepRole + builders;
       Game.spawns.spawn1.createCreep(
         [WORK, CARRY, MOVE, MOVE],
@@ -54,7 +56,7 @@ let spawnManager = function() {
       break;
     case 3:
     logCreeps();
-      let creepRole = "repairer";
+      creepRole = "repairer";
       name = creepRole + repairers;
       Game.spawns.spawn1.createCreep(
         [WORK, CARRY, MOVE, MOVE],
@@ -65,7 +67,7 @@ let spawnManager = function() {
       break;
     case 4:
     logCreeps();
-      let creepRole = "upgrader";
+      creepRole = "upgrader";
       name = creepRole + upgraders;
       Game.spawns.spawn1.createCreep(
         [WORK, CARRY, MOVE, MOVE],
@@ -76,7 +78,7 @@ let spawnManager = function() {
       break;
     default:
     logCreeps();
-      let creepRole = "harvester";
+      creepRole = "harvester";
       name = creepRole + harvesters;
       Game.spawns.spawn1.createCreep(
         [WORK, CARRY, CARRY, MOVE, MOVE],
@@ -135,12 +137,7 @@ let spawnManager = function() {
     "Builders: ", builders
     );
   }
-  //TODO: alternate spawning extra creeps
-    //  Game.spawns.spawn1.createCreep(
-    //    [WORK, CARRY, CARRY, MOVE, MOVE],
-    //    null,
-    //    {role: 'upgrader'}
-    //  );
+
     //  Game.spawns.spawn1.createCreep(
     //    [ATTACK, ATTACK, TOUGH, TOUGH, TOUGH, TOUGH, MOVE, MOVE],
     //    null,
