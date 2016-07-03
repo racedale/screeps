@@ -41,7 +41,7 @@ var spawnManager = function spawnManager() {
     var priority = 1;
   } else if (lowest != harvesters && lowest == builders) {
     var priority = 2;
-  } else if (lowest != harvesters && lowest == repairers) {
+  } else if (lowest != harvesters && lowest == repairers && repairers < 4) {
     var priority = 3;
   } else if (lowest != harvesters && lowest == upgraders) {
     var priority = 4;
