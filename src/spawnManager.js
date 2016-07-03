@@ -20,7 +20,7 @@ let spawnManager = function() {
 
     if (lowest == harvesters || harvesters < 7) {
       var priority = 1;
-    } else if (lowest != harvesters && lowest == builders) {
+    } else if (lowest != harvesters && (lowest == builders || builders < 3)) {
       var priority = 2
     } else if (lowest != harvesters && (lowest == repairers && repairers < 4)) {
       var priority = 3
