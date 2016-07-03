@@ -9,25 +9,16 @@ let lowest = 0;
 
 let spawnManager = function() {
 
+  if (harvesters == undefined) { harvesters = 0; }
+  if (upgraders == undefined) { builders = 0; }
+  if (repairers == undefined) { repairers = 0; }
+  if (builders == undefined) { builders = 0; }
+
+  let lowest = Math.min(harvesters, builders, upgraders, repairers);
+
   // choose spawns
   // let maxCreeps = 20;
   // if (Game.creeps.length < maxCreeps) {
-  if (harvesters == undefined) {
-    harvesters = 0;
-  }
-  if (upgraders == undefined) {
-    builders = 0;
-  }
-  if (repairers == undefined) {
-    repairers = 0;
-  }
-  if (builders == undefined) {
-    builders = 0;
-  }
-
-  let lowest = Math.min(harvesters, builders, upgraders, repairers);
-  console.log("Lowest: " + lowest);
-
   if (lowest == harvesters || harvesters < 7) {
     var priority = 1;
   } else if (lowest != harvesters && lowest == builders) {
