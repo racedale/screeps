@@ -42,7 +42,7 @@ module.exports.loop = function () {
       totalEnergy += extensions[i].energy;
     }
     totalEnergy += Game.spawns.spawn1.energy;
-    if (Game.spawns.spawn1.room.energyCapacityAvailable >= 350) {
+    if (Game.spawns.spawn1.room.energyAvailable >= 350) {
       (0, _spawnManager2.default)();
     }
   }
