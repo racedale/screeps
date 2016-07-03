@@ -10,7 +10,7 @@ import spawnManager from 'spawnManager';
 // global.Cache = new Cache();
 module.exports.loop = function () {
 
-  let maxCreeps = 20;
+  let maxCreeps = 22;
   if (Game.spawns.spawn1.room.find(FIND_MY_CREEPS).length < maxCreeps) {
     if (Game.spawns.spawn1.spawning === null) {
       // Clean memory for expired creeps

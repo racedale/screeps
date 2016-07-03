@@ -25,7 +25,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // global.Cache = new Cache();
 module.exports.loop = function () {
 
-  var maxCreeps = 20;
+  var maxCreeps = 22;
   if (Game.spawns.spawn1.room.find(FIND_MY_CREEPS).length < maxCreeps) {
     if (Game.spawns.spawn1.spawning === null) {
       // Clean memory for expired creeps
