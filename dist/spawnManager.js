@@ -53,7 +53,7 @@ var spawnManager = function spawnManager() {
     case 1:
       logCreeps();
       creepRole = "harvester";
-      name = creepRole + harvesters;
+      name = creepRole + harvesters; // For auto-naming, not used yet
       Game.spawns.spawn1.createCreep([WORK, CARRY, CARRY, MOVE, MOVE], null, { role: creepRole });
       console.log('Spawning new harvester');
       break;
@@ -61,7 +61,7 @@ var spawnManager = function spawnManager() {
     case 2:
       logCreeps();
       creepRole = "builder";
-      name = creepRole + builders;
+      name = creepRole + builders; // For auto-naming, not used yet
       Game.spawns.spawn1.createCreep([WORK, CARRY, MOVE, MOVE], null, { role: creepRole });
       console.log('Spawning new builder');
       break;
@@ -69,7 +69,7 @@ var spawnManager = function spawnManager() {
     case 3:
       logCreeps();
       creepRole = "repairer";
-      name = creepRole + repairers;
+      name = creepRole + repairers; // For auto-naming, not used yet
       Game.spawns.spawn1.createCreep([WORK, CARRY, MOVE, MOVE], null, { role: creepRole });
       console.log('Spawning new repairer');
       break;
@@ -77,7 +77,7 @@ var spawnManager = function spawnManager() {
     case 4:
       logCreeps();
       creepRole = "upgrader";
-      name = creepRole + upgraders;
+      name = creepRole + upgraders; // For auto-naming, not used yet
       Game.spawns.spawn1.createCreep([WORK, CARRY, MOVE, MOVE], null, { role: creepRole });
       console.log('Spawning new upgrader');
       break;
@@ -85,7 +85,7 @@ var spawnManager = function spawnManager() {
     default:
       logCreeps();
       creepRole = "harvester";
-      name = creepRole + harvesters;
+      name = creepRole + harvesters; // For auto-naming, not used yet
       Game.spawns.spawn1.createCreep([WORK, CARRY, CARRY, MOVE, MOVE], null, { role: creepRole });
       console.log('Spawning new harvester');
   }
