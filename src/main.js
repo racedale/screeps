@@ -10,23 +10,26 @@ import spawnManager from 'spawnManager';
 // global.Cache = new Cache();
 module.exports.loop = function () {
 
-  if (Game.spawns.spawn1.spawning === null) {
-    // Clean memory for expired creeps
-    for (let name in Memory.creeps) {
-      if (Game.creeps[name] == undefined) {
-        delete Memory.creeps[name];
+  let maxCreeps = 20;
+  if (Game.spawns.spawn1.room.find(FIND_MY_CREEPS).length < maxCreeps) {
+    if (Game.spawns.spawn1.spawning === null) {
+      // Clean memory for expired creeps
+      for (let name in Memory.creeps) {
+        if (Game.creeps[name] == undefined) {
+          delete Memory.creeps[name];
+        }
       }
-    }
 
-    // Only run spawnManager if there is enough energy
-    var totalEnergy = 0;
-    var extensions = _.filter(Game.structures, (structure) => structure.structureType == STRUCTURE_EXTENSION);
-    for (var i = 0; i < extensions.length; i++) {
-      totalEnergy += extensions[i].energy;
-    }
-    totalEnergy += Game.spawns.spawn1.energy;
-    if (Game.spawns.spawn1.room.energyAvailable >= 350) {
-      spawnManager();
+      // Only run spawnManager if there is enough energy
+      var totalEnergy = 0;
+      var extensions = _.filter(Game.structures, (structure) => structure.structureType == STRUCTURE_EXTENSION);
+      for (var i = 0; i < extensions.length; i++) {
+        totalEnergy += extensions[i].energy;
+      }
+      totalEnergy += Game.spawns.spawn1.energy;
+      if (Game.spawns.spawn1.room.energyAvailable >= 350) {
+        spawnManager();
+      }
     }
   }
 
