@@ -30,6 +30,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // import Cache from 'Cache';
 module.exports.loop = function () {
   var numberofHarvesters = 0;
+  var numberofMiners = 0;
   var numberofUpgraders = 0;
   var numberofBuilders = 0;
   var numberofRepairers = 0;
@@ -39,6 +40,10 @@ module.exports.loop = function () {
     if (creep.memory.role == 'harvester') {
       _role2.default.run(creep);
       ++numberofHarvesters;
+    }
+    if (creep.memory.role == 'miner') {
+      _role2.default.run(creep);
+      ++numberofMiners;
     }
     if (creep.memory.role == 'upgrader') {
       _role4.default.run(creep);
@@ -75,7 +80,7 @@ module.exports.loop = function () {
       }
       totalEnergy += Game.spawns.spawn1.energy;
       if (Game.spawns.spawn1.room.energyAvailable >= 350) {
-        (0, _spawnManager2.default)(numberofHarvesters, numberofUpgraders, numberofBuilders, numberofRepairers);
+        (0, _spawnManager2.default)(numberofHarvesters, numberofMiners, numberofUpgraders, numberofBuilders, numberofRepairers);
       }
     }
   }

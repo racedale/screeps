@@ -11,6 +11,7 @@ import tower from 'tower';
 // global.Cache = new Cache();
 module.exports.loop = function () {
   var numberofHarvesters = 0;
+  var numberofMiners = 0;
   var numberofUpgraders = 0;
   var numberofBuilders = 0;
   var numberofRepairers = 0;
@@ -20,6 +21,10 @@ module.exports.loop = function () {
     if(creep.memory.role == 'harvester') {
       roleHarvester.run(creep);
       ++numberofHarvesters;
+    }
+    if(creep.memory.role == 'miner') {
+      roleHarvester.run(creep);
+      ++numberofMiners;
     }
     if(creep.memory.role == 'upgrader') {
       roleUpgrader.run(creep);
@@ -55,6 +60,7 @@ module.exports.loop = function () {
       totalEnergy += Game.spawns.spawn1.energy;
       if (Game.spawns.spawn1.room.energyAvailable >= 350) {
         spawnManager(numberofHarvesters,
+          numberofMiners,
           numberofUpgraders,
           numberofBuilders,
           numberofRepairers);
