@@ -1,4 +1,5 @@
 // import Cache from 'Cache';
+import run from 'run';
 import roleHarvester from 'role.harvester';
 import roleUpgrader from 'role.upgrader';
 import roleBuilder from 'role.builder';
@@ -7,8 +8,10 @@ import roleRepairer from 'role.repairer';
 import spawnManager from 'spawnManager';
 
 
+
 // global.Cache = new Cache();
 module.exports.loop = function () {
+  run();
 
   let maxCreeps = 22;
   if (Game.spawns.spawn1.room.find(FIND_MY_CREEPS).length < maxCreeps) {
@@ -33,23 +36,6 @@ module.exports.loop = function () {
     }
   }
 
-  for(let name in Game.creeps) {
-    let creep = Game.creeps[name];
-    if(creep.memory.role == 'harvester') {
-      roleHarvester.run(creep);
-    }
-    if(creep.memory.role == 'upgrader') {
-      roleUpgrader.run(creep);
-    }
-    if(creep.memory.role == 'builder') {
-      roleBuilder.run(creep);
-    }
-    if (creep.memory.role == 'repairer') {
-      roleRepairer.run(creep);
-    }
-    // console.log("For loop:", Game.getUsedCPU());
-  }
-
   // Tower code from tutorial
   const towerStructure = Game.getObjectById('5779768fd8653260453a6c1b');
   if(towerStructure) {
@@ -57,7 +43,7 @@ module.exports.loop = function () {
      {
      filter: (structure) => structure.hits < structure.hitsMax
      });
-   if(closestDamagedStructure) {
+   if(closestDamagedStructure && (towerStructure.energy > towerStructure.energyCapacity/2)) {
      towerStructure.repair(closestDamagedStructure);
    }
 

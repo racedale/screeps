@@ -1,5 +1,9 @@
 'use strict';
 
+var _run = require('run');
+
+var _run2 = _interopRequireDefault(_run);
+
 var _role = require('role.harvester');
 
 var _role2 = _interopRequireDefault(_role);
@@ -23,7 +27,9 @@ var _spawnManager2 = _interopRequireDefault(_spawnManager);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // global.Cache = new Cache();
+// import Cache from 'Cache';
 module.exports.loop = function () {
+  (0, _run2.default)();
 
   var maxCreeps = 22;
   if (Game.spawns.spawn1.room.find(FIND_MY_CREEPS).length < maxCreeps) {
@@ -50,23 +56,6 @@ module.exports.loop = function () {
     }
   }
 
-  for (var _name in Game.creeps) {
-    var creep = Game.creeps[_name];
-    if (creep.memory.role == 'harvester') {
-      _role2.default.run(creep);
-    }
-    if (creep.memory.role == 'upgrader') {
-      _role4.default.run(creep);
-    }
-    if (creep.memory.role == 'builder') {
-      _role6.default.run(creep);
-    }
-    if (creep.memory.role == 'repairer') {
-      _role8.default.run(creep);
-    }
-    // console.log("For loop:", Game.getUsedCPU());
-  }
-
   // Tower code from tutorial
   var towerStructure = Game.getObjectById('5779768fd8653260453a6c1b');
   if (towerStructure) {
@@ -75,7 +64,7 @@ module.exports.loop = function () {
         return structure.hits < structure.hitsMax;
       }
     });
-    if (closestDamagedStructure) {
+    if (closestDamagedStructure && towerStructure.energy > towerStructure.energyCapacity / 2) {
       towerStructure.repair(closestDamagedStructure);
     }
 
@@ -86,4 +75,3 @@ module.exports.loop = function () {
   }
 };
 // import tower from 'tower';
-// import Cache from 'Cache';
