@@ -32,9 +32,10 @@ exports.default = {
           return structure.structureType == STRUCTURE_CONTAINER && structure.energy < structure.energyCapacity;
         }
       });
+      console.log(targets);
       if (targets.length > 0) {
-        if (creep.transfer(targets[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-          creep.moveTo(targets[0]);
+        if (creep.transfer(targets, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+          creep.moveTo(targets);
         }
       } else {
         _role2.default.run(creep);
