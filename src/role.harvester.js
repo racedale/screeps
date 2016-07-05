@@ -14,7 +14,7 @@ export default {
 
     let source = creep.pos.findClosestByRange(FIND_STRUCTURES, {
      filter: (structure) => {
-       return structure.structureType == STRUCTURE_CONTAINER && structure.store > 0;
+       return structure.structureType == STRUCTURE_CONTAINER; //TODO: check for energy
      }
     })
     console.log(source);

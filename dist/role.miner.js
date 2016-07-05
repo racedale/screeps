@@ -29,7 +29,7 @@ exports.default = {
     } else {
       var targets = creep.pos.findClosestByRange(FIND_STRUCTURES, {
         filter: function filter(structure) {
-          return structure.structureType == STRUCTURE_CONTAINER && structure.store < structure.storeCapacity;
+          return structure.structureType == STRUCTURE_CONTAINER; //TODO: check if full
         }
       });
       console.log(targets);

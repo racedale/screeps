@@ -19,8 +19,7 @@ export default {
    else {
      let targets = creep.pos.findClosestByRange(FIND_STRUCTURES, {
        filter: (structure) => {
-         return structure.structureType == STRUCTURE_CONTAINER
-          && structure.store < structure.storeCapacity;
+         return structure.structureType == STRUCTURE_CONTAINER;//TODO: check if full
        }
      });
      console.log(targets);
