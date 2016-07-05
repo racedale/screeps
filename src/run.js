@@ -1,3 +1,8 @@
+import roleHarvester from 'role.harvester';
+import roleUpgrader from 'role.upgrader';
+import roleBuilder from 'role.builder';
+import roleRepairer from 'role.repairer';
+
 var numberofHarvesters = 0;
 var numberofUpgraders = 0;
 var numberofBuilders = 0;

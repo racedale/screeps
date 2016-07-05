@@ -4,22 +4,6 @@ var _run = require('run');
 
 var _run2 = _interopRequireDefault(_run);
 
-var _role = require('role.harvester');
-
-var _role2 = _interopRequireDefault(_role);
-
-var _role3 = require('role.upgrader');
-
-var _role4 = _interopRequireDefault(_role3);
-
-var _role5 = require('role.builder');
-
-var _role6 = _interopRequireDefault(_role5);
-
-var _role7 = require('role.repairer');
-
-var _role8 = _interopRequireDefault(_role7);
-
 var _spawnManager = require('spawnManager');
 
 var _spawnManager2 = _interopRequireDefault(_spawnManager);

@@ -1,9 +1,5 @@
 // import Cache from 'Cache';
 import run from 'run';
-import roleHarvester from 'role.harvester';
-import roleUpgrader from 'role.upgrader';
-import roleBuilder from 'role.builder';
-import roleRepairer from 'role.repairer';
 // import tower from 'tower';
 import spawnManager from 'spawnManager';
 
