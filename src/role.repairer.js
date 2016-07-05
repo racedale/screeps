@@ -14,7 +14,7 @@ export default {
 
     if(creep.memory.repairing) {
       let repairSite = creep.pos.findClosestByRange(FIND_STRUCTURES, {
-        filter: (structure) => structure.hits < structure.hitsMax && structure.structureType != STRUCTURE_WALL
+        filter: (structure) => (structure.hits < structure.hitsMax / 1.5) && structure.structureType != STRUCTURE_WALL
       });
       if(repairSite) {
         if(creep.repair(repairSite) == ERR_NOT_IN_RANGE) {
