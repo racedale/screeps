@@ -10,7 +10,15 @@ export default {
     // }
 
    if(creep.carry.energy < creep.carryCapacity) {
-     let source = creep.pos.findClosestByRange(FIND_SOURCES);
+     if (numberofMiners == 0) {
+       let source = creep.pos.findClosestByRange(FIND_SOURCES);
+     } else {
+       let source = creep.pos.findClosestByRange(FIND_MY_STRUCTURES, {
+         filter: (structure) => {
+           return structure.structureType == STRUCTURE_CONTAINER && structure.energy > 0;
+         }
+       })
+     }
      if(creep.harvest(source) == ERR_NOT_IN_RANGE) {
        creep.moveTo(source);
      }
