@@ -22,7 +22,7 @@ export default {
       let source = creep.pos.findClosestByRange(FIND_SOURCES);
     }
 
-    if(containers[0].transfer(creep, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+    if(source[0].transfer(creep, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
        creep.moveTo(source);
      }
    }
