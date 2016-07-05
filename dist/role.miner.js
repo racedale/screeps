@@ -32,7 +32,7 @@ exports.default = {
           return structure.structureType == STRUCTURE_CONTAINER; //TODO: check if full
         }
       });
-      console.log(targets);
+
       if (targets) {
         if (creep.transfer(targets, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
           creep.moveTo(targets);

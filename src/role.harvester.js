@@ -17,7 +17,6 @@ export default {
        return structure.structureType == STRUCTURE_CONTAINER; //TODO: check for energy
      }
     })
-    console.log(source);
 
     if (source == undefined) {
       let source = creep.pos.findClosestByRange(FIND_SOURCES);
