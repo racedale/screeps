@@ -10,6 +10,7 @@ let name = undefined;
 let lowest = 0;
 
 let spawnManager = function() {
+  console.log(numberofHarvesters);
 
   if (harvesters == undefined) { harvesters = 0; }
   if (upgraders == undefined) { builders = 0; }

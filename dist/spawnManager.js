@@ -24,6 +24,7 @@ var name = undefined;
 var lowest = 0;
 
 var spawnManager = function spawnManager() {
+  console.log(numberofHarvesters);
 
   if (harvesters == undefined) {
     harvesters = 0;

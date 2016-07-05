@@ -1,7 +1,10 @@
 // import Cache from 'Cache';
-import run from 'run';
-import tower from 'tower';
+import roleHarvester from 'role.harvester';
+import roleUpgrader from 'role.upgrader';
+import roleBuilder from 'role.builder';
+import roleRepairer from 'role.repairer';
 import spawnManager from 'spawnManager';
+import tower from 'tower';
 
 
 
@@ -12,7 +15,26 @@ module.exports.loop = function () {
   var numberofBuilders = 0;
   var numberofRepairers = 0;
 
-  run();
+  for(let name in Game.creeps) {
+    let creep = Game.creeps[name];
+    if(creep.memory.role == 'harvester') {
+      roleHarvester.run(creep);
+      ++numberofHarvesters;
+    }
+    if(creep.memory.role == 'upgrader') {
+      roleUpgrader.run(creep);
+      ++numberofUpgraders;
+    }
+    if(creep.memory.role == 'builder') {
+      roleBuilder.run(creep);
+      ++numberofBuilders;
+    }
+    if (creep.memory.role == 'repairer') {
+      roleRepairer.run(creep);
+      ++numberofRepairers;
+    }
+    // console.log("For loop:", Game.getUsedCPU());
+  }
 
   let maxCreeps = 22;
   if (Game.spawns.spawn1.room.find(FIND_MY_CREEPS).length < maxCreeps) {
@@ -32,7 +54,7 @@ module.exports.loop = function () {
       }
       totalEnergy += Game.spawns.spawn1.energy;
       if (Game.spawns.spawn1.room.energyAvailable >= 350) {
-        spawnManager();
+        spawnManager(numberofHarvesters, numberofUpgraders, numberofBuilders, numberofRepairers);
       }
     }
   }
