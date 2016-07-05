@@ -13,9 +13,12 @@ exports.default = {
     // } else if (creep.memory.working == false && creep.carry.energy == creep.carryCapacity) {
     //   creep.memory.working = true;
     // }
+    var container = creep.room.find(FIND_MY_STRUCTURES, { filter: function filter(structure) {
+        return structure.structureType == STRUCTURE_CONTAINER && structure.energy > 0;
+      } });
 
     if (creep.carry.energy < creep.carryCapacity) {
-      if (numberofMiners == 0) {
+      if (!container) {
         var _source = creep.pos.findClosestByRange(FIND_SOURCES);
       } else {
         var _source2 = creep.pos.findClosestByRange(FIND_MY_STRUCTURES, {

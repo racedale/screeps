@@ -8,9 +8,10 @@ export default {
     // } else if (creep.memory.working == false && creep.carry.energy == creep.carryCapacity) {
     //   creep.memory.working = true;
     // }
-
+    let container = creep.room.find(FIND_MY_STRUCTURES, { filter: (structure) => structure.structureType == STRUCTURE_CONTAINER && structure.energy > 0});
+    
    if(creep.carry.energy < creep.carryCapacity) {
-     if (numberofMiners == 0) {
+     if (!container) {
        let source = creep.pos.findClosestByRange(FIND_SOURCES);
      } else {
        let source = creep.pos.findClosestByRange(FIND_MY_STRUCTURES, {
