@@ -12,7 +12,7 @@ export default {
 
   if(creep.carry.energy < creep.carryCapacity) {
 
-    let source = creep.pos.findClosestByRange(FIND_MY_STRUCTURES, {
+    let source = creep.pos.findClosestByRange(FIND_STRUCTURES, {
      filter: (structure) => {
        return structure.structureType == STRUCTURE_CONTAINER && structure.energy > 0;
      }
