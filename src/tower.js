@@ -1,20 +1,20 @@
-//
-// const tower = {
-//
-//   let towerStructure = Game.getObjectById('TOWER_ID');
-//   if(towerStructure) {
-//    let closestDamagedStructure = towerStructure.pos.findClosestByRange(FIND_STRUCTURES, {
-//      filter: (structure) => structure.hits < structure.hitsMax
-//    });
-//    if(closestDamagedStructure) {
-//      towerStructure.repair(closestDamagedStructure);
-//    }
-//
-//    let closestHostile = towerStructure.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
-//    if(closestHostile) {
-//      towerStructure.attack(closestHostile);
-//    }
-//   }
-// };
-//
-// module.exports = tower;
+
+export default function tower() {
+  // Tower code from tutorial
+  var towerStructure = Game.getObjectById('5779768fd8653260453a6c1b');
+  if (towerStructure) {
+    var closestDamagedStructure = towerStructure.pos.findClosestByRange(FIND_STRUCTURES, {
+      filter: function filter(structure) {
+        return structure.hits < structure.hitsMax;
+      }
+    });
+    if (closestDamagedStructure && towerStructure.energy > towerStructure.energyCapacity / 2) {
+      towerStructure.repair(closestDamagedStructure);
+    }
+
+    var closestHostile = towerStructure.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
+    if (closestHostile) {
+      towerStructure.attack(closestHostile);
+    }
+  }
+}

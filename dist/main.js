@@ -4,6 +4,10 @@ var _run = require('run');
 
 var _run2 = _interopRequireDefault(_run);
 
+var _tower = require('tower');
+
+var _tower2 = _interopRequireDefault(_tower);
+
 var _spawnManager = require('spawnManager');
 
 var _spawnManager2 = _interopRequireDefault(_spawnManager);
@@ -11,8 +15,12 @@ var _spawnManager2 = _interopRequireDefault(_spawnManager);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // global.Cache = new Cache();
-// import Cache from 'Cache';
 module.exports.loop = function () {
+  var numberofHarvesters = 0;
+  var numberofUpgraders = 0;
+  var numberofBuilders = 0;
+  var numberofRepairers = 0;
+
   (0, _run2.default)();
 
   var maxCreeps = 22;
@@ -41,21 +49,5 @@ module.exports.loop = function () {
   }
 
   // Tower code from tutorial
-  var towerStructure = Game.getObjectById('5779768fd8653260453a6c1b');
-  if (towerStructure) {
-    var closestDamagedStructure = towerStructure.pos.findClosestByRange(FIND_STRUCTURES, {
-      filter: function filter(structure) {
-        return structure.hits < structure.hitsMax;
-      }
-    });
-    if (closestDamagedStructure && towerStructure.energy > towerStructure.energyCapacity / 2) {
-      towerStructure.repair(closestDamagedStructure);
-    }
-
-    var closestHostile = towerStructure.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
-    if (closestHostile) {
-      towerStructure.attack(closestHostile);
-    }
-  }
-};
-// import tower from 'tower';
+  (0, _tower2.default)();
+}; // import Cache from 'Cache';

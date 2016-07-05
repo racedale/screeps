@@ -1,12 +1,17 @@
 // import Cache from 'Cache';
 import run from 'run';
-// import tower from 'tower';
+import tower from 'tower';
 import spawnManager from 'spawnManager';
 
 
 
 // global.Cache = new Cache();
 module.exports.loop = function () {
+  var numberofHarvesters = 0;
+  var numberofUpgraders = 0;
+  var numberofBuilders = 0;
+  var numberofRepairers = 0;
+
   run();
 
   let maxCreeps = 22;
@@ -33,19 +38,5 @@ module.exports.loop = function () {
   }
 
   // Tower code from tutorial
-  const towerStructure = Game.getObjectById('5779768fd8653260453a6c1b');
-  if(towerStructure) {
-   let closestDamagedStructure = towerStructure.pos.findClosestByRange(FIND_STRUCTURES,
-     {
-     filter: (structure) => structure.hits < structure.hitsMax
-     });
-   if(closestDamagedStructure && (towerStructure.energy > towerStructure.energyCapacity/2)) {
-     towerStructure.repair(closestDamagedStructure);
-   }
-
-   let closestHostile = towerStructure.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
-   if(closestHostile) {
-     towerStructure.attack(closestHostile);
-   }
-  }
+  tower();
 }
