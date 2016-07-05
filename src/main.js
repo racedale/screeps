@@ -1,5 +1,6 @@
 // import Cache from 'Cache';
 import roleHarvester from 'role.harvester';
+import roleMiner from 'role.miner';
 import roleUpgrader from 'role.upgrader';
 import roleBuilder from 'role.builder';
 import roleRepairer from 'role.repairer';
