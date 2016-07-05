@@ -9,18 +9,20 @@ export default {
     //   creep.memory.working = true;
     // }
     let container = creep.room.find(FIND_MY_STRUCTURES, { filter: (structure) => structure.structureType == STRUCTURE_CONTAINER && structure.energy > 0});
-    
-   if(creep.carry.energy < creep.carryCapacity) {
-     if (!container) {
-       let source = creep.pos.findClosestByRange(FIND_SOURCES);
-     } else {
-       let source = creep.pos.findClosestByRange(FIND_MY_STRUCTURES, {
-         filter: (structure) => {
-           return structure.structureType == STRUCTURE_CONTAINER && structure.energy > 0;
-         }
-       })
+
+  if(creep.carry.energy < creep.carryCapacity) {
+
+    let source = creep.pos.findClosestByRange(FIND_MY_STRUCTURES, {
+     filter: (structure) => {
+       return structure.structureType == STRUCTURE_CONTAINER && structure.energy > 0;
      }
-     if(creep.harvest(source) == ERR_NOT_IN_RANGE) {
+    })
+
+    if (source == undefined) {
+      let source = creep.pos.findClosestByRange(FIND_SOURCES);
+    }
+
+    if(creep.harvest(source) == ERR_NOT_IN_RANGE) {
        creep.moveTo(source);
      }
    }

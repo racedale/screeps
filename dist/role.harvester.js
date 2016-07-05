@@ -18,15 +18,17 @@ exports.default = {
       } });
 
     if (creep.carry.energy < creep.carryCapacity) {
-      if (!container) {
+
+      var source = creep.pos.findClosestByRange(FIND_MY_STRUCTURES, {
+        filter: function filter(structure) {
+          return structure.structureType == STRUCTURE_CONTAINER && structure.energy > 0;
+        }
+      });
+
+      if (source == undefined) {
         var _source = creep.pos.findClosestByRange(FIND_SOURCES);
-      } else {
-        var _source2 = creep.pos.findClosestByRange(FIND_MY_STRUCTURES, {
-          filter: function filter(structure) {
-            return structure.structureType == STRUCTURE_CONTAINER && structure.energy > 0;
-          }
-        });
       }
+
       if (creep.harvest(source) == ERR_NOT_IN_RANGE) {
         creep.moveTo(source);
       }
