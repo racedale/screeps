@@ -68,7 +68,7 @@ module.exports.loop = function () {
   }
 
   // Tower code from tutorial
-  var towerStructure = Game.getObjectById('TOWER_ID');
+  var towerStructure = Game.getObjectById('5779768fd8653260453a6c1b');
   if (towerStructure) {
     var closestDamagedStructure = towerStructure.pos.findClosestByRange(FIND_STRUCTURES, {
       filter: function filter(structure) {
