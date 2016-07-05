@@ -1,22 +1,22 @@
-
-let harvesters = _.sum(Game.creeps, (creep) => creep.memory.role == 'harvester');
-let upgraders = _.sum(Game.creeps, (creep) => creep.memory.role == 'upgrader');
-let repairers = _.sum(Game.creeps, (creep) => creep.memory.role == 'repairer');
-let builders = _.sum(Game.creeps, (creep) => creep.memory.role == 'builder');
+//
+// let harvesters = _.sum(Game.creeps, (creep) => creep.memory.role == 'harvester');
+// let upgraders = _.sum(Game.creeps, (creep) => creep.memory.role == 'upgrader');
+// let repairers = _.sum(Game.creeps, (creep) => creep.memory.role == 'repairer');
+// let builders = _.sum(Game.creeps, (creep) => creep.memory.role == 'builder');
 let healers = [];
 let guards = [];
 let name = undefined;
 let lowest = 0;
 
-let spawnManager = function() {
-  console.log(numberofHarvesters);
+let spawnManager = function(harvesters, upgraders, builders, repairers) {
+  console.log(harvesters);
 
   if (harvesters == undefined) { harvesters = 0; }
   if (upgraders == undefined) { builders = 0; }
   if (repairers == undefined) { repairers = 0; }
   if (builders == undefined) { builders = 0; }
 
-  let lowest = Math.min(harvesters, builders, upgraders, repairers);
+  let lowest = Math.min(harvesters, upgraders, builders, repairers);
 
   // choose spawns
 

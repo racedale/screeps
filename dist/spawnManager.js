@@ -1,24 +1,17 @@
-'use strict';
+"use strict";
 
-var harvesters = _.sum(Game.creeps, function (creep) {
-  return creep.memory.role == 'harvester';
-});
-var upgraders = _.sum(Game.creeps, function (creep) {
-  return creep.memory.role == 'upgrader';
-});
-var repairers = _.sum(Game.creeps, function (creep) {
-  return creep.memory.role == 'repairer';
-});
-var builders = _.sum(Game.creeps, function (creep) {
-  return creep.memory.role == 'builder';
-});
+//
+// let harvesters = _.sum(Game.creeps, (creep) => creep.memory.role == 'harvester');
+// let upgraders = _.sum(Game.creeps, (creep) => creep.memory.role == 'upgrader');
+// let repairers = _.sum(Game.creeps, (creep) => creep.memory.role == 'repairer');
+// let builders = _.sum(Game.creeps, (creep) => creep.memory.role == 'builder');
 var healers = [];
 var guards = [];
 var name = undefined;
 var lowest = 0;
 
-var spawnManager = function spawnManager() {
-  console.log(numberofHarvesters);
+var spawnManager = function spawnManager(harvesters, upgraders, builders, repairers) {
+  console.log(harvesters);
 
   if (harvesters == undefined) {
     harvesters = 0;
@@ -33,7 +26,7 @@ var spawnManager = function spawnManager() {
     builders = 0;
   }
 
-  var lowest = Math.min(harvesters, builders, upgraders, repairers);
+  var lowest = Math.min(harvesters, upgraders, builders, repairers);
 
   // choose spawns
 
