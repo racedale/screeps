@@ -23,8 +23,22 @@ export default {
       }
     }
     else {
-      let source = creep.pos.findClosestByRange(FIND_SOURCES);
-      if(creep.harvest(source) == ERR_NOT_IN_RANGE) {
+      // let source = creep.pos.findClosestByRange(FIND_SOURCES);
+      // if(creep.harvest(source) == ERR_NOT_IN_RANGE) {
+      //   creep.moveTo(source);
+      // }
+      let source = creep.pos.findClosestByRange(FIND_STRUCTURES, {
+       filter: (structure) => {
+         return structure.structureType == STRUCTURE_CONTAINER; //TODO: check for energy
+       }
+      })
+      let containers = creep.pos.findInRange(FIND_STRUCTURES, 1,
+            {filter: {structureType: STRUCTURE_CONTAINER}});
+
+      console.log(source);
+      console.log(containers);
+      
+      if(containers[0].transfer(creep, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
         creep.moveTo(source);
       }
     }
