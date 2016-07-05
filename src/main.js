@@ -24,7 +24,7 @@ module.exports.loop = function () {
       ++numberofHarvesters;
     }
     if(creep.memory.role == 'miner') {
-      roleHarvester.run(creep);
+      roleMiner.run(creep);
       ++numberofMiners;
     }
     if(creep.memory.role == 'upgrader') {

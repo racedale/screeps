@@ -45,7 +45,7 @@ module.exports.loop = function () {
       ++numberofHarvesters;
     }
     if (creep.memory.role == 'miner') {
-      _role2.default.run(creep);
+      _role4.default.run(creep);
       ++numberofMiners;
     }
     if (creep.memory.role == 'upgrader') {
