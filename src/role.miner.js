@@ -24,7 +24,7 @@ export default {
        }
      });
      console.log(targets);
-     if(targets.length > 0) {
+     if(targets) {
        if(creep.transfer(targets, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
          creep.moveTo(targets);
        }
