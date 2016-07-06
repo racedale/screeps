@@ -9,7 +9,7 @@ exports.default = {
 
   run: function run(creep) {
 
-    var target = creep.pos.findNearest(Game.HOSTILE_CREEPS);
+    var target = creep.pos.findClosestByRange(Game.HOSTILE_CREEPS);
     if (target && creep.hits > creep.hitsMax - 500 /* no more attack */) {
         creep.moveTo(target);
         creep.attack(target);
