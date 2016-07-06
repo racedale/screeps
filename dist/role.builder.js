@@ -44,10 +44,7 @@ exports.default = {
       });
       var containers = creep.pos.findInRange(FIND_STRUCTURES, 1, { filter: { structureType: STRUCTURE_CONTAINER } });
 
-      console.log(source);
-      console.log(containers);
-
-      if (containers[0].transfer(creep, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+      if (source.transfer(creep, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
         creep.moveTo(source);
       }
     }
