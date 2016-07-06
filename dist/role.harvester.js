@@ -18,10 +18,18 @@ exports.default = {
       } });
 
     if (creep.carry.energy < creep.carryCapacity) {
-
-      var source = creep.pos.findClosestByRange(FIND_SOURCES);
-
-      if (creep.harvest(source) == ERR_NOT_IN_RANGE) {
+      //
+      // let source = creep.pos.findClosestByRange(FIND_SOURCES);
+      //
+      // if(creep.harvest(source) == ERR_NOT_IN_RANGE) {
+      //    creep.moveTo(source);
+      //  }
+      var source = creep.pos.findClosestByRange(FIND_STRUCTURES, {
+        filter: function filter(structure) {
+          return structure.structureType == STRUCTURE_CONTAINER; //TODO: check for energy
+        }
+      });
+      if (source.transfer(creep, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
         creep.moveTo(source);
       }
     } else {
