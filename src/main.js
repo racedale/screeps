@@ -4,6 +4,7 @@ import roleMiner from 'role.miner';
 import roleUpgrader from 'role.upgrader';
 import roleBuilder from 'role.builder';
 import roleRepairer from 'role.repairer';
+import roleGuard from 'role.guard';
 import spawnManager from 'spawnManager';
 import tower from 'tower';
 
@@ -16,6 +17,7 @@ module.exports.loop = function () {
   var numberofUpgraders = 0;
   var numberofBuilders = 0;
   var numberofRepairers = 0;
+  var numberofGuards = 0;
 
   for(let name in Game.creeps) {
     let creep = Game.creeps[name];
@@ -38,6 +40,10 @@ module.exports.loop = function () {
     if (creep.memory.role == 'repairer') {
       roleRepairer.run(creep);
       ++numberofRepairers;
+    }
+    if (creep.memory.role == 'guard') {
+      roleGuard.run(creep);
+      ++numberofGuards;
     }
     // console.log("For loop:", Game.getUsedCPU());
   }
@@ -64,7 +70,8 @@ module.exports.loop = function () {
           numberofMiners,
           numberofUpgraders,
           numberofBuilders,
-          numberofRepairers);
+          numberofRepairers,
+          numberofGuards);
       }
     }
   }

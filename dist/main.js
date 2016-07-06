@@ -20,6 +20,10 @@ var _role9 = require('role.repairer');
 
 var _role10 = _interopRequireDefault(_role9);
 
+var _role11 = require('role.guard');
+
+var _role12 = _interopRequireDefault(_role11);
+
 var _spawnManager = require('spawnManager');
 
 var _spawnManager2 = _interopRequireDefault(_spawnManager);
@@ -31,12 +35,14 @@ var _tower2 = _interopRequireDefault(_tower);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // global.Cache = new Cache();
+// import Cache from 'Cache';
 module.exports.loop = function () {
   var numberofHarvesters = 0;
   var numberofMiners = 0;
   var numberofUpgraders = 0;
   var numberofBuilders = 0;
   var numberofRepairers = 0;
+  var numberofGuards = 0;
 
   for (var name in Game.creeps) {
     var creep = Game.creeps[name];
@@ -59,6 +65,10 @@ module.exports.loop = function () {
     if (creep.memory.role == 'repairer') {
       _role10.default.run(creep);
       ++numberofRepairers;
+    }
+    if (creep.memory.role == 'guard') {
+      _role12.default.run(creep);
+      ++numberofGuards;
     }
     // console.log("For loop:", Game.getUsedCPU());
   }
@@ -83,11 +93,11 @@ module.exports.loop = function () {
       }
       totalEnergy += Game.spawns.spawn1.energy;
       if (Game.spawns.spawn1.room.energyAvailable >= 350) {
-        (0, _spawnManager2.default)(numberofHarvesters, numberofMiners, numberofUpgraders, numberofBuilders, numberofRepairers);
+        (0, _spawnManager2.default)(numberofHarvesters, numberofMiners, numberofUpgraders, numberofBuilders, numberofRepairers, numberofGuards);
       }
     }
   }
 
   // Tower code from tutorial
   (0, _tower2.default)();
-}; // import Cache from 'Cache';
+};

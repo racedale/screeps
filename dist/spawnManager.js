@@ -1,16 +1,10 @@
 "use strict";
 
-//
-// let harvesters = _.sum(Game.creeps, (creep) => creep.memory.role == 'harvester');
-// let upgraders = _.sum(Game.creeps, (creep) => creep.memory.role == 'upgrader');
-// let repairers = _.sum(Game.creeps, (creep) => creep.memory.role == 'repairer');
-// let builders = _.sum(Game.creeps, (creep) => creep.memory.role == 'builder');
 var healers = [];
-var guards = [];
 var name = undefined;
 var lowest = 0;
 
-var spawnManager = function spawnManager(harvesters, miners, upgraders, builders, repairers) {
+var spawnManager = function spawnManager(harvesters, miners, upgraders, builders, repairers, guards) {
 
   if (harvesters == undefined) {
     harvesters = 0;
@@ -27,8 +21,11 @@ var spawnManager = function spawnManager(harvesters, miners, upgraders, builders
   if (builders == undefined) {
     builders = 0;
   }
+  if (guards == undefined) {
+    guards = 0;
+  }
 
-  var lowest = Math.min(harvesters, miners, upgraders, builders, repairers);
+  var lowest = Math.min(harvesters, miners, upgraders, builders, repairers, guards);
 
   // choose spawns
 
@@ -42,6 +39,8 @@ var spawnManager = function spawnManager(harvesters, miners, upgraders, builders
     var priority = 4;
   } else if (lowest != harvesters && lowest == upgraders) {
     var priority = 5;
+  } else if (lowest != harvesters && lowest == guards) {
+    var priority = 6;
   }
 
   var creepRole;
@@ -87,6 +86,14 @@ var spawnManager = function spawnManager(harvesters, miners, upgraders, builders
       console.log('Spawning new upgrader');
       break;
 
+    case 5:
+      logCreeps();
+      creepRole = "guard";
+      name = creepRole + guards; // For auto-naming, not used yet
+      Game.spawns.spawn1.createCreep([ATTACK, ATTACK, TOUGH, TOUGH, TOUGH, TOUGH, MOVE, MOVE], null, { role: 'guard' });
+      console.log('Spawning new guard');
+      break;
+
     default:
       logCreeps();
       creepRole = "builder";
@@ -96,14 +103,9 @@ var spawnManager = function spawnManager(harvesters, miners, upgraders, builders
   }
 
   function logCreeps() {
-    console.log("Harvesters: ", harvesters, "Miners: ", miners, "Upgraders: ", upgraders, "Repairers: ", repairers, "Builders: ", builders);
+    console.log("Harvesters: ", harvesters, "Miners: ", miners, "Upgraders: ", upgraders, "Repairers: ", repairers, "Builders: ", builders, "Guards: ", guards);
   }
 
-  //  Game.spawns.spawn1.createCreep(
-  //    [ATTACK, ATTACK, TOUGH, TOUGH, TOUGH, TOUGH, MOVE, MOVE],
-  //    null,
-  //    {role: 'guards'}
-  //  );
   // console.log("Spawn CPU: ", Game.cpu.getUsed());
 };
 
