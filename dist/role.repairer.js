@@ -26,7 +26,7 @@ exports.default = {
     if (creep.memory.repairing) {
       var repairSite = creep.pos.findClosestByRange(FIND_STRUCTURES, {
         filter: function filter(structure) {
-          return structure.hits < structure.hitsMax / 1.5 && structure.structureType != STRUCTURE_WALL;
+          return structure.hits < structure.hitsMax / 1.3 && structure.structureType != STRUCTURE_WALL;
         }
       });
       if (repairSite) {
@@ -37,8 +37,12 @@ exports.default = {
         _role2.default.run(creep);
       }
     } else {
-      var source = creep.pos.findClosestByRange(FIND_SOURCES);
-      if (creep.harvest(source) == ERR_NOT_IN_RANGE) {
+      var source = creep.pos.findClosestByRange(FIND_STRUCTURES, {
+        filter: function filter(structure) {
+          return structure.structureType == STRUCTURE_CONTAINER; //TODO: check for energy
+        }
+      });
+      if (source.transfer(creep, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
         creep.moveTo(source);
       }
     }
