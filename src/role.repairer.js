@@ -30,8 +30,10 @@ export default {
          return structure.structureType == STRUCTURE_CONTAINER && structure.store[RESOURCE_ENERGY] > 0;
        }
       })
-      if(source.transfer(creep, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-        creep.moveTo(source);
+      if(source) {
+        if(source.transfer(creep, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+          creep.moveTo(source);
+        }
       }
     }
   }
