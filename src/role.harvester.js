@@ -3,12 +3,6 @@ export default {
 
  /** @param {Creep} creep **/
   run(creep) {
-    // if (creep.memory.working == true && creep.carry.energy == 0) {
-    //   creep.memory.working = false;
-    // } else if (creep.memory.working == false && creep.carry.energy == creep.carryCapacity) {
-    //   creep.memory.working = true;
-    // }
-    let container = creep.room.find(FIND_MY_STRUCTURES, { filter: (structure) => structure.structureType == STRUCTURE_CONTAINER && structure.energy > 0});
 
   if(creep.carry.energy < creep.carryCapacity) {
     //
