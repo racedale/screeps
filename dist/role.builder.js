@@ -33,20 +33,18 @@ exports.default = {
         _role2.default.run(creep);
       }
     } else {
-      (function () {
-        // let source = creep.pos.findClosestByRange(FIND_SOURCES);
-        // if(creep.harvest(source) == ERR_NOT_IN_RANGE) {
-        //   creep.moveTo(source);
-        // }
-        var source = creep.pos.findClosestByRange(FIND_STRUCTURES, {
-          filter: function filter(structure) {
-            return structure.structureType == STRUCTURE_CONTAINER && source.store[RESOURCE_ENERGY] > 0;
-          }
-        });
-        if (source.transfer(creep, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-          creep.moveTo(source);
+      // let source = creep.pos.findClosestByRange(FIND_SOURCES);
+      // if(creep.harvest(source) == ERR_NOT_IN_RANGE) {
+      //   creep.moveTo(source);
+      // }
+      var source = creep.pos.findClosestByRange(FIND_STRUCTURES, {
+        filter: function filter(structure) {
+          return structure.structureType == STRUCTURE_CONTAINER && structure.store[RESOURCE_ENERGY] > 0;
         }
-      })();
+      });
+      if (source.transfer(creep, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+        creep.moveTo(source);
+      }
     }
   }
 };

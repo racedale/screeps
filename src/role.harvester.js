@@ -19,7 +19,7 @@ export default {
     //  }
      let source = creep.pos.findClosestByRange(FIND_STRUCTURES, {
       filter: (structure) => {
-        return structure.structureType == STRUCTURE_CONTAINER && source.store[RESOURCE_ENERGY] > 0;
+        return structure.structureType == STRUCTURE_CONTAINER && structure.store[RESOURCE_ENERGY] > 0;
       }
      })
 
