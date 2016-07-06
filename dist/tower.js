@@ -10,7 +10,7 @@ function tower() {
   if (towerStructure) {
     var closestDamagedStructure = towerStructure.pos.findClosestByRange(FIND_STRUCTURES, {
       filter: function filter(structure) {
-        return structure.hits < structure.hitsMax;
+        return structure.hits < structure.hitsMax / 4;
       }
     });
     if (closestDamagedStructure && towerStructure.energy > towerStructure.energyCapacity / 2) {
