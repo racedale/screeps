@@ -9,7 +9,7 @@ export default {
   		creep.moveTo(target);
   		creep.attack(target);
   	} else {
-  		creep.moveTo(Game.spawns.Spawn1);
+  		creep.moveTo(Game.spawns.spawn1);
   	}
   }
 }
