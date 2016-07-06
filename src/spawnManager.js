@@ -16,7 +16,7 @@ let spawnManager = function(harvesters, miners, upgraders, builders, repairers, 
 
   // choose spawns
 
-    if (lowest == harvesters || harvesters < 4) {
+    if (lowest == harvesters || harvesters < 3) {
       var priority = 1;
     } else if (lowest != harvesters && miners < 4) {
       var priority = 2;
@@ -38,7 +38,7 @@ let spawnManager = function(harvesters, miners, upgraders, builders, repairers, 
     creepRole = "harvester";
     name = creepRole + harvesters; // For auto-naming, not used yet
     Game.spawns.spawn1.createCreep(
-      [WORK, CARRY, CARRY, MOVE, MOVE],
+      [CARRY, CARRY, CARRY, MOVE, MOVE],
       null,
       {role: creepRole}
     );
