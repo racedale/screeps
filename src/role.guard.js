@@ -4,18 +4,12 @@ export default {
   /** @param {Creep} creep **/
   run(creep) {
 
-    if(creep.memory.attacking && creep.carry.energy == 0) {
-      creep.memory.attacking = false;
-    }
-    if(!creep.memory.attacking && creep.carry.energy == creep.carryCapacity) {
-      creep.memory.attacking = true;
-    }
-
-    if(creep.memory.attacking) {
-
-    }
-    else {
-
-    }
+    var target = creep.pos.findNearest(Game.HOSTILE_CREEPS);
+  	if(target && creep.hits > creep.hitsMax - 500 /* no more attack */) {
+  		creep.moveTo(target);
+  		creep.attack(target);
+  	} else {
+  		creep.moveTo(Game.spawns.Spawn1);
+  	}
   }
 }
