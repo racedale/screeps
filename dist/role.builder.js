@@ -42,8 +42,6 @@ exports.default = {
           return structure.structureType == STRUCTURE_CONTAINER; //TODO: check for energy
         }
       });
-      var containers = creep.pos.findInRange(FIND_STRUCTURES, 1, { filter: { structureType: STRUCTURE_CONTAINER } });
-
       if (source.transfer(creep, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
         creep.moveTo(source);
       }
