@@ -52,7 +52,7 @@ let spawnManager = function(harvesters, miners, upgraders, builders, repairers) 
     creepRole = "miner";
     name = creepRole + miners; // For auto-naming, not used yet
     Game.spawns.spawn1.createCreep(
-      [WORK, WORK, CARRY, CARRY, MOVE],
+      [WORK, WORK, WORK, CARRY, MOVE],
       null,
       {role: creepRole}
     );
