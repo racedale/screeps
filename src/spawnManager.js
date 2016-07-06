@@ -22,7 +22,7 @@ let spawnManager = function(harvesters, miners, upgraders, builders, repairers, 
       var priority = 2;
     } else if (lowest != harvesters && (lowest == builders || builders < 3)) {
       var priority = 3;
-    } else if (lowest != harvesters && (lowest == repairers && repairers < 4)) {
+    } else if (lowest != harvesters && (lowest == repairers && repairers < 3)) {
       var priority = 4;
     } else if (lowest != harvesters && lowest == upgraders) {
       var priority = 5;
@@ -93,7 +93,7 @@ let spawnManager = function(harvesters, miners, upgraders, builders, repairers, 
     console.log('Spawning new upgrader');
     break;
 
-    case 5:
+    case 6:
     logCreeps();
     creepRole = "guard";
     name = creepRole + guards; // For auto-naming, not used yet
@@ -114,7 +114,7 @@ let spawnManager = function(harvesters, miners, upgraders, builders, repairers, 
       null,
       {role: creepRole}
     );
-    console.log('Spawning new builder');
+    console.log('Default: Spawning new builder');
   }
 
   function logCreeps() {

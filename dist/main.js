@@ -73,7 +73,7 @@ module.exports.loop = function () {
     // console.log("For loop:", Game.getUsedCPU());
   }
 
-  var maxCreeps = 22;
+  var maxCreeps = 24;
   if (Game.spawns.spawn1.room.find(FIND_MY_CREEPS).length < maxCreeps) {
     if (Game.spawns.spawn1.spawning === null) {
       // Clean memory for expired creeps
