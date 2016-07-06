@@ -32,7 +32,7 @@ var spawnManager = function spawnManager(harvesters, miners, upgraders, builders
 
   // choose spawns
 
-  if (lowest == harvesters || harvesters < 7) {
+  if (lowest == harvesters || harvesters < 4) {
     var priority = 1;
   } else if (lowest != harvesters && miners < 4) {
     var priority = 2;
