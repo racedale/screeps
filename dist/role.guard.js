@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -11,13 +11,11 @@ exports.default = {
 
     var movePos = new RoomPosition(45, 25, 'W32S39'); //East side of Graham's room
     var target = creep.pos.findClosestByRange(Game.HOSTILE_CREEPS);
-    console.log(target.owner.username);
+    // console.log(target.owner.username);
 
     if (target && creep.hits > creep.hitsMax - 200 /* no more attack */) {
-        if (target.owner.username != "Graham") {
-          creep.moveTo(target);
-          creep.attack(target);
-        }
+        //   creep.moveTo(target);
+        //   creep.attack(target);
       } else {
       creep.moveTo(movePos);
     }
